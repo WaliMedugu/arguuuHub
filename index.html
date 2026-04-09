@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arguuu — Where Arguments Live | Structured Debates & Perspectives</title>
+<meta name="description" content="Arguuu is the ultimate platform where arguments live. Engage in structured debates, vote on perspectives, and explore the clash of ideas in a premium, minimalist environment. Join the discussion today.">
+<meta name="keywords" content="Arguuu, debates, arguments, structured discussion, perspectives, truth, clash of ideas, debate platform">
+<meta name="author" content="Arguuu">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arguuu.com/">
+<meta property="og:title" content="Arguuu — Where Arguments Live">
+<meta property="og:description" content="Engage in structured debates, vote on perspectives, and explore the clash of ideas in a premium, minimalist environment.">
+<meta property="og:image" content="https://arguuu.com/arguuu_logo.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://arguuu.com/">
+<meta property="twitter:title" content="Arguuu — Where Arguments Live">
+<meta property="twitter:description" content="Engage in structured debates, vote on perspectives, and explore the clash of ideas in a premium, minimalist environment.">
+<meta property="twitter:image" content="https://arguuu.com/arguuu_logo.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="arguuu_logo.png">
+<link rel="apple-touch-icon" href="arguuu_logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #faf6f0;
+    --warm-white: #fdf9f4;
+    --sand: #e8ddd0;
+    --tan: #c9b99e;
+    --terracotta: #c4724a;
+    --rust: #a85535;
+    --brown: #5c3d2e;
+    --dark: #2a1f17;
+    --text: #3d2b1f;
+    --text-light: #7a5c4a;
+    --ink: #1a110a;
+    --for-blue: #1a5fa8;
+    --for-blue-light: #d4e7f7;
+    --for-blue-mid: #3a7fc4;
+    --against-rust: #a85535;
+    --against-rust-light: #f5ddd1;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(250,246,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span.for { color: var(--for-blue); }
+  .nav-logo span.against { color: var(--against-rust); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-gallery-link { color: var(--terracotta) !important; }
+  .nav-gallery-link:hover { color: var(--rust) !important; }
+  .nav-portfolio-link { color: var(--for-blue) !important; font-style: italic; }
+  .nav-portfolio-link:hover { color: var(--for-blue-mid) !important; }
+
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--brown); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-clash {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+
+  .bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+  .bubble-for {
+    background: var(--for-blue);
+    color: #fff;
+    border-radius: 20px 0 0 20px;
+  }
+  .bubble-against {
+    background: var(--against-rust);
+    color: #fff;
+    border-radius: 0 20px 20px 0;
+  }
+  .bubble-vs {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    padding: 0.5rem 0.8rem;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    max-width: 900px;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.9s ease 0.5s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.9s ease 0.65s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 0.9s ease 0.8s forwards;
+  }
+  .btn-primary {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--brown); transform: translateY(-1px); }
+  .btn-secondary {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.2rem;
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--tan);
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: var(--brown); transform: translateY(-1px); }
+
+  .btn-android {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.6rem;
+    background: #1b7a3e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-android:hover { background: #145e2f; transform: translateY(-1px); }
+
+  .btn-webapp {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.6rem;
+    background: var(--for-blue);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-webapp:hover { background: var(--for-blue-mid); transform: translateY(-1px); }
+
+  /* decorative bg marks */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,95,168,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168,85,53,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-scroll-hint {
+    margin-top: 4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--tan);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.2s forwards;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--tan);
+    animation: scrollPulse 1.8s ease infinite;
+  }
+
+  /* ── TICKER ── */
+  .ticker {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .ticker-inner {
+    display: inline-flex;
+    gap: 3rem;
+    animation: ticker 20s linear infinite;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .ticker-item { color: var(--sand); }
+  .ticker-item .dot { color: var(--terracotta); margin: 0 0.5rem; }
+
+  /* ── SECTION BASE ── */
+  section {
+    padding: 6rem 2rem;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--tan);
+  }
+  h2.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  h2.section-heading em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  /* ── INTRO SPLIT ── */
+  .intro-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  .intro-text .lead {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-top: 1.5rem;
+    font-style: italic;
+  }
+  .intro-visual {
+    position: relative;
+    height: 400px;
+  }
+  .iv-card {
+    position: absolute;
+    padding: 1.5rem 1.75rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(42,31,23,0.08);
+  }
+  .iv-card-for {
+    top: 20px; left: 0;
+    background: var(--for-blue-light);
+    border-left: 3px solid var(--for-blue);
+    width: 80%;
+  }
+  .iv-card-against {
+    bottom: 20px; right: 0;
+    background: var(--against-rust-light);
+    border-left: 3px solid var(--against-rust);
+    width: 80%;
+  }
+  .iv-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+  }
+  .iv-card-for .iv-card-label { color: var(--for-blue); }
+  .iv-card-against .iv-card-label { color: var(--against-rust); }
+  .iv-card p {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .iv-connector {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    z-index: 10;
+    box-shadow: 0 0 0 8px var(--cream);
+  }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { background: var(--warm-white); }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+  .step {
+    position: relative;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .step.visible { opacity: 1; transform: none; }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--sand);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .step p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  .step-line {
+    width: 32px;
+    height: 2px;
+    background: var(--terracotta);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── FEATURES ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+    background: var(--sand);
+    border: 1px solid var(--sand);
+  }
+  .feature-card {
+    background: var(--cream);
+    padding: 2.5rem;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .feature-card.visible { opacity: 1; transform: none; }
+  .feature-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+  }
+  .feature-icon.blue { background: var(--for-blue-light); }
+  .feature-icon.rust { background: var(--against-rust-light); }
+  .feature-icon.brown { background: var(--sand); }
+  .feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+  .feature-card p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-section {
+    background: var(--ink);
+    padding: 7rem 2rem;
+    text-align: center;
+  }
+  .pull-section blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.3;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    letter-spacing: -0.02em;
+  }
+  .pull-section blockquote em { color: var(--terracotta); font-style: normal; }
+  .pull-attrib {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+
+  /* ── DEBATE PREVIEW ── */
+  .debate-preview { background: var(--warm-white); }
+  .debate-card {
+    max-width: 720px;
+    margin: 4rem auto 0;
+    background: var(--cream);
+    border: 1px solid var(--sand);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 32px rgba(42,31,23,0.06);
+  }
+  .debate-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--sand);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .debate-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .debate-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    background: var(--for-blue-light);
+    color: var(--for-blue);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .debate-sides {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .debate-side {
+    padding: 1.75rem 2rem;
+  }
+  .debate-side.for { border-right: 1px solid var(--sand); }
+  .side-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  .debate-side.for .side-label { color: var(--for-blue); }
+  .debate-side.against .side-label { color: var(--against-rust); }
+  .debate-side p {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+  .debate-side .avatar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .avatar {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    font-weight: 500;
+  }
+  .av-for { background: var(--for-blue-light); color: var(--for-blue); }
+  .av-against { background: var(--against-rust-light); color: var(--against-rust); }
+  .avatar-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+  }
+  .debate-footer {
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--warm-white);
+  }
+  .vote-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .vote-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--against-rust-light);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .vote-fill {
+    height: 100%;
+    background: var(--for-blue);
+    border-radius: 2px;
+    width: 62%;
+  }
+  .vote-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+  }
+  .debate-footer-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1.5rem;
+  }
+  .action-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--sand);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    border-radius: 2px;
+    background: none;
+  }
+  .action-pill:hover { border-color: var(--brown); color: var(--text); }
+
+  /* ── NOTIFY / CTA ── */
+  .cta-section {
+    padding: 7rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 28rem;
+    color: var(--sand);
+    opacity: 0.35;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .cta-inner { position: relative; z-index: 1; }
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+  .cta-section h2 em { font-style: italic; color: var(--terracotta); }
+  .cta-section p {
+    color: var(--text-light);
+    max-width: 420px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
+  }
+  .notify-form {
+    display: flex;
+    gap: 0;
+    max-width: 420px;
+    margin: 0 auto;
+    border: 1.5px solid var(--tan);
+    background: var(--warm-white);
+  }
+  .notify-form input {
+    flex: 1;
+    padding: 0.9rem 1.2rem;
+    border: none;
+    background: transparent;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+  }
+  .notify-form input::placeholder { color: var(--tan); }
+  .notify-form button {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.4rem;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .notify-form button:hover { background: var(--brown); }
+  .form-note {
+    margin-top: 0.85rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tan);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--cream);
+  }
+  .footer-logo span.for { color: var(--for-blue-mid); }
+  .footer-logo span.against { color: var(--terracotta); }
+  .footer-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    text-align: right;
+  }
+  .footer-meta p { margin-bottom: 0.2rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.3); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .intro-split { grid-template-columns: 1fr; gap: 3rem; }
+    .intro-visual { height: 280px; }
+    .steps-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .debate-sides { grid-template-columns: 1fr; }
+    .debate-side.for { border-right: none; border-bottom: 1px solid var(--sand); }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
+    .footer-meta { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </div>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#preview">Preview</a></li>
+    <li><a href="arguuu-gallery.html" class="nav-gallery-link">Gallery</a></li>
+    <li><a href="https://wali-blog.vercel.app/" target="_blank" class="nav-portfolio-link">Portfolio ↗</a></li>
+  </ul>
+  <a href="#notify" class="nav-cta">Get Early Access</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Coming Soon — Blue Particle Studios</div>
+  <div class="hero-clash">
+    <div class="bubble bubble-for">FOR</div>
+    <div class="bubble bubble-vs">VS</div>
+    <div class="bubble bubble-against">AGAINST</div>
+  </div>
+  <h1>The arena for<br><em>real arguments.</em></h1>
+  <p class="hero-sub">Arguuu is a structured debate platform where every side gets a voice, every argument is weighed, and the best ideas win.</p>
+  <div class="hero-actions">
+    <a href="#notify" class="btn-primary">Join the Waitlist</a>
+    <a href="#" class="btn-android" title="Download APK for Android">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><path d="M2 10.5V3.5C2 3.22 2.22 3 2.5 3h9c.28 0 .5.22.5.5v7c0 .28-.22.5-.5.5h-9C2.22 11 2 10.78 2 10.5Z" stroke="currentColor" stroke-width="1.2"/><path d="M5 3V1.5M9 3V1.5M4.5 7h5M7 5.5v3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Android APK
+    </a>
+    <a href="#" class="btn-webapp">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M7 1.5C7 1.5 5 4 5 7s2 5.5 2 5.5M7 1.5C7 1.5 9 4 9 7s-2 5.5-2 5.5M1.5 7h11" stroke="currentColor" stroke-width="1.2"/></svg>
+      Web App
+    </a>
+    <a href="#how" class="btn-secondary">How it works</a>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item">Structured Debate<span class="dot">◆</span></span>
+    <span class="ticker-item">Real Arguments<span class="dot">◆</span></span>
+    <span class="ticker-item">For &amp; Against<span class="dot">◆</span></span>
+    <span class="ticker-item">Evidence-Based<span class="dot">◆</span></span>
+    <span class="ticker-item">Community Voted<span class="dot">◆</span></span>
+    <span class="ticker-item">No Echo Chambers<span class="dot">◆</span></span>
+    <span class="ticker-item">Structured Debate<span class="dot">◆</span></span>
+    <span class="ticker-item">Real Arguments<span class="dot">◆</span></span>
+    <span class="ticker-item">For &amp; Against<span class="dot">◆</span></span>
+    <span class="ticker-item">Evidence-Based<span class="dot">◆</span></span>
+    <span class="ticker-item">Community Voted<span class="dot">◆</span></span>
+    <span class="ticker-item">No Echo Chambers<span class="dot">◆</span></span>
+  </div>
+</div>
+
+<!-- INTRO SPLIT -->
+<section id="about">
+  <div class="container">
+    <div class="intro-split">
+      <div class="intro-text">
+        <div class="section-label">What is Arguuu</div>
+        <h2 class="section-heading">Arguments are<br><em>underrated.</em></h2>
+        <p class="lead">Most platforms punish disagreement. Arguuu was built for it. Every debate has two sides — and both deserve space to speak, build their case, and let the community decide.</p>
+        <p style="margin-top: 1.25rem; color: var(--text-light); font-size: 0.95rem;">No rage-bait. No clout chasing. Just structured, evidence-grounded debate on the topics that actually matter.</p>
+      </div>
+      <div class="intro-visual">
+        <div class="iv-card iv-card-for">
+          <div class="iv-card-label">For</div>
+          <p>Universal basic income reduces poverty and gives people the freedom to pursue meaningful work without the fear of destitution.</p>
+        </div>
+        <div class="iv-connector">vs</div>
+        <div class="iv-card iv-card-against">
+          <div class="iv-card-label">Against</div>
+          <p>Cash transfers without conditions discourage labour participation and do not address the structural causes of poverty.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="how-section">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2 class="section-heading">Three steps to a<br><em>better argument.</em></h2>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-line"></div>
+        <h3>Pick Your Motion</h3>
+        <p>Browse curated debate topics or propose your own. From politics to philosophy, tech to culture — if it matters, it belongs here.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-line"></div>
+        <h3>Choose Your Side</h3>
+        <p>Declare FOR or AGAINST. Build your argument point by point, respond to the opposing side, and back your claims with evidence.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-line"></div>
+        <h3>Let the Room Decide</h3>
+        <p>The community votes — not on who they agree with, but on who argued better. Skill beats echo chambers, every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-section">
+  <blockquote>"The point isn't to win. The point is to make <em>the argument</em> worth having."</blockquote>
+  <p class="pull-attrib">— The Arguuu Manifesto</p>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="section-label">Features</div>
+    <h2 class="section-heading">Built for <em>substance,</em><br>not performance.</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon blue">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="1" y="1" width="6" height="6" rx="1" fill="#1a5fa8"/>
+            <rect x="9" y="1" width="6" height="6" rx="1" fill="#1a5fa8" opacity="0.4"/>
+            <rect x="1" y="9" width="6" height="6" rx="1" fill="#1a5fa8" opacity="0.4"/>
+            <rect x="9" y="9" width="6" height="6" rx="1" fill="#1a5fa8"/>
+          </svg>
+        </div>
+        <h3>Structured Debate Format</h3>
+        <p>Every motion follows a clear structure — opening arguments, rebuttals, closing statements. No shapeless comment threads. Real debate architecture.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon rust">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="8" cy="8" r="7" stroke="#a85535" stroke-width="1.5"/>
+            <path d="M5 8l2 2 4-4" stroke="#a85535" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Evidence Tagging</h3>
+        <p>Cite sources, tag evidence types, and let the community grade the quality of your proof. Arguments that rely on facts earn more weight.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon brown">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M2 4h12M2 8h8M2 12h10" stroke="#5c3d2e" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Skill-Based Voting</h3>
+        <p>Voters don't pick sides — they evaluate arguments. Better logic, stronger evidence, and clearer reasoning move the needle, not popularity.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon blue">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1L10 6H15L11 9.5L12.5 15L8 11.5L3.5 15L5 9.5L1 6H6L8 1Z" fill="#1a5fa8" opacity="0.5" stroke="#1a5fa8" stroke-width="0.5"/>
+          </svg>
+        </div>
+        <h3>Reputation System</h3>
+        <p>Build your debater profile across topics and disciplines. Your track record speaks. Respected voices earn the room — not the algorithm.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon rust">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <circle cx="5" cy="8" r="3" stroke="#a85535" stroke-width="1.5"/>
+            <circle cx="11" cy="8" r="3" stroke="#a85535" stroke-width="1.5" opacity="0.5"/>
+            <path d="M8 5v6" stroke="#a85535" stroke-width="1" stroke-dasharray="2 2"/>
+          </svg>
+        </div>
+        <h3>Debate Rooms</h3>
+        <p>Live-format debates with real-time argument feeds, timed rounds, and audience participation. The arena, not the comment section.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon brown">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 13V7M8 13V3M13 13V9" stroke="#5c3d2e" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Argument Analytics</h3>
+        <p>See how your argument performed at every stage. Which point landed, what didn't, and where you lost the room. Improve with every debate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEBATE PREVIEW -->
+<section id="preview" class="debate-preview">
+  <div class="container">
+    <div class="section-label">Live Preview</div>
+    <h2 class="section-heading" style="margin-bottom: 0.5rem;">This is what a<br><em>debate looks like.</em></h2>
+    <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 0;">An actual Arguuu debate card, live from the platform.</p>
+
+    <div class="debate-card">
+      <div class="debate-header">
+        <h3>AI will replace more jobs than it creates in the next decade.</h3>
+        <div class="debate-badge">Live · 14 arguing</div>
+      </div>
+      <div class="debate-sides">
+        <div class="debate-side for">
+          <div class="side-label">For</div>
+          <p>Automation displaces routine and semi-skilled work faster than new roles emerge. Retraining programmes consistently lag behind technological shifts, leaving millions structurally unemployed.</p>
+          <div class="avatar-row">
+            <div class="avatar av-for">AK</div>
+            <span class="avatar-name">Aisha K. · 3 points</span>
+          </div>
+        </div>
+        <div class="debate-side against">
+          <div class="side-label">Against</div>
+          <p>Every industrial shift created net employment over time. AI will generate entirely new categories of work we cannot yet name — just as computers created the software industry from nothing.</p>
+          <div class="avatar-row">
+            <div class="avatar av-against">TE</div>
+            <span class="avatar-name">Temi E. · 2 points</span>
+          </div>
+        </div>
+      </div>
+      <div class="debate-footer">
+        <div class="vote-bar-wrap">
+          <span class="vote-label" style="color: var(--for-blue);">62%</span>
+          <div class="vote-bar"><div class="vote-fill"></div></div>
+          <span class="vote-label" style="color: var(--against-rust);">38%</span>
+        </div>
+        <div class="debate-footer-actions">
+          <button class="action-pill">Join</button>
+          <button class="action-pill">Watch</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTIFY CTA -->
+<section id="notify" class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label" style="justify-content: center;">Early Access</div>
+    <h2>Be first in<br>the <em>arena.</em></h2>
+    <p>Arguuu is opening soon. Leave your email and we'll let you know the moment the doors open.</p>
+    <div class="notify-form">
+      <input type="email" placeholder="your@email.com" aria-label="Email address">
+      <button type="button" onclick="handleNotify(this)">Notify Me</button>
+    </div>
+    <p class="form-note">No spam. Just the one email when we launch.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </div>
+  <div class="footer-meta">
+    <p>© 2026 Blue Particle Studios</p>
+    <p>Built by Wali Medugu</p>
+  </div>
+</footer>
+
+<script>
+  const steps = document.querySelectorAll('.step');
+  const features = document.querySelectorAll('.feature-card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.dataset.delay || 0;
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  steps.forEach((s, i) => { s.dataset.delay = i * 120; observer.observe(s); });
+  features.forEach((f, i) => { f.dataset.delay = i * 80; observer.observe(f); });
+
+  function handleNotify(btn) {
+    const input = btn.previousElementSibling;
+    const val = input.value.trim();
+    if (!val || !val.includes('@')) {
+      input.style.borderBottom = '1.5px solid var(--against-rust)';
+      return;
+    }
+    btn.textContent = 'Done ✓';
+    btn.style.background = 'var(--terracotta)';
+    btn.disabled = true;
+    input.disabled = true;
+    input.style.color = 'var(--text-light)';
+  }
+</script>
+
+</body>
+</html>
