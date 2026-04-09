@@ -1027,6 +1027,119 @@
     .mobile-menu .mobile-extra-links { display: flex; }
     .nav-logo { font-size: 1rem; }
   }
+  /* ── INSTALL MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(26,17,10,0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    padding: 2rem;
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .modal-card {
+    background: var(--cream);
+    max-width: 480px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .modal-overlay.active .modal-card {
+    transform: translateY(0);
+  }
+  .modal-header {
+    background: var(--ink);
+    padding: 2rem;
+    text-align: center;
+    color: var(--cream);
+  }
+  .modal-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .modal-header p {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tan);
+  }
+  .modal-body {
+    padding: 2.5rem 2rem;
+  }
+  .instruction-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .instr-step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .step-badge {
+    width: 24px; height: 24px;
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+  .step-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+  .step-content p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+  .modal-footer {
+    padding: 1.5rem 2rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--sand);
+  }
+  .btn-close-modal {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-close-modal:hover { background: var(--brown); }
+
+  @media (max-width: 480px) {
+    .modal-card { max-width: 100%; border-radius: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+    .modal-overlay { padding: 0; }
+  }
 </style>
 </head>
 <body>
@@ -1085,11 +1198,11 @@
   <p class="hero-sub">Arguuu is a structured debate platform where every side gets a voice, every argument is weighed, and the best ideas win.</p>
   <div class="hero-actions">
     <a href="#notify" class="btn-primary">Join the Waitlist</a>
-    <a href="#" class="btn-android" title="Download APK for Android">
+    <a href="assets/apk/Arguuu_v2.6.1.apk" download class="btn-android" title="Download APK for Android" onclick="showInstallInstructions()">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><path d="M2 10.5V3.5C2 3.22 2.22 3 2.5 3h9c.28 0 .5.22.5.5v7c0 .28-.22.5-.5.5h-9C2.22 11 2 10.78 2 10.5Z" stroke="currentColor" stroke-width="1.2"/><path d="M5 3V1.5M9 3V1.5M4.5 7h5M7 5.5v3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       Android APK
     </a>
-    <a href="#" class="btn-webapp">
+    <a href="https://arguuu-web.vercel.app/" target="_blank" class="btn-webapp">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M7 1.5C7 1.5 5 4 5 7s2 5.5 2 5.5M7 1.5C7 1.5 9 4 9 7s-2 5.5-2 5.5M1.5 7h11" stroke="currentColor" stroke-width="1.2"/></svg>
       Web App
     </a>
@@ -1409,6 +1522,26 @@
     }
   });
 
+  // --- INSTALL INSTRUCTIONS ---
+  function showInstallInstructions() {
+    const modal = document.getElementById('installModal');
+    modal.classList.add('active');
+    body.style.overflow = 'hidden';
+  }
+
+  function closeInstallModal() {
+    const modal = document.getElementById('installModal');
+    modal.classList.remove('active');
+    body.style.overflow = '';
+  }
+
+  // Close on ESC or click outside
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.getElementById('installModal').classList.contains('active')) {
+      closeInstallModal();
+    }
+  });
+
   // --- VISIT COUNTER ---
   async function updateVisitCount() {
     const countEl = document.getElementById('visit-count');
@@ -1431,6 +1564,51 @@
   }
   updateVisitCount();
 </script>
+
+<!-- INSTALL MODAL -->
+<div class="modal-overlay" id="installModal" onclick="if(event.target === this) closeInstallModal()">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3>Installation Guide</h3>
+      <p>Android APK · Arguuu v2.6.1</p>
+    </div>
+    <div class="modal-body">
+      <ul class="instruction-steps">
+        <li class="instr-step">
+          <div class="step-badge">01</div>
+          <div class="step-content">
+            <h4>Download Started</h4>
+            <p>The APK file is downloading to your device. Check your notifications for progress.</p>
+          </div>
+        </li>
+        <li class="instr-step">
+          <div class="step-badge">02</div>
+          <div class="step-content">
+            <h4>Open File</h4>
+            <p>Once finished, tap the file in your notification bar or your <strong>Downloads</strong> folder.</p>
+          </div>
+        </li>
+        <li class="instr-step">
+          <div class="step-badge">03</div>
+          <div class="step-content">
+            <h4>Allow Sources</h4>
+            <p>If blocked, go to <strong>Settings</strong> and toggle <strong>"Allow from this source"</strong> for your browser.</p>
+          </div>
+        </li>
+        <li class="instr-step">
+          <div class="step-badge">04</div>
+          <div class="step-content">
+            <h4>Complete Install</h4>
+            <p>Tap <strong>Install</strong> and launch the app. Welcome to the arena.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-close-modal" onclick="closeInstallModal()">Got it</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
