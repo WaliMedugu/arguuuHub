@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arguuu — Legal & Policy Center</title>
+  <meta name="description" content="Arguuu Legal Center. Read our Privacy Policy, Terms and Conditions, and Data Safety information. We are committed to protecting your privacy and providing a safe, transparent debate environment.">
+  <meta name="keywords" content="Arguuu, legal, privacy policy, terms and conditions, data safety, Blue Particle Studios, Nigeria Data Protection Regulation, NDPR">
+  <meta name="author" content="Arguuu">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arguuu.com/arguuu-legal.html">
+  <meta property="og:title" content="Arguuu — Legal & Policy Center">
+  <meta property="og:description" content="Read our Privacy Policy, Terms and Conditions, and Data Safety information. Understand how we protect your data.">
+  <meta property="og:image" content="https://arguuu.com/arguuu_logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://arguuu.com/arguuu-legal.html">
+  <meta property="twitter:title" content="Arguuu — Legal & Policy Center">
+  <meta property="twitter:description" content="Read our Privacy Policy, Terms and Conditions, and Data Safety information. Understand how we protect your data.">
+  <meta property="twitter:image" content="https://arguuu.com/arguuu_logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="arguuu_logo.png">
+  <link rel="apple-touch-icon" href="arguuu_logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #faf6f0;
+      --warm-white: #fdf9f4;
+      --sand: #e8ddd0;
+      --tan: #c9b99e;
+      --terracotta: #c4724a;
+      --rust: #a85535;
+      --brown: #5c3d2e;
+      --dark: #2a1f17;
+      --text: #3d2b1f;
+      --text-light: #7a5c4a;
+      --ink: #1a110a;
+      --for-blue: #1a5fa8;
+      --against-rust: #a85535;
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav.site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand);
+    }
+  
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo span.for { color: var(--for-blue); }
+    .nav-logo span.against { color: var(--against-rust); }
+  
+    .nav-legal-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-left: 1.25rem;
+      padding-left: 1.25rem;
+      border-left: 1px solid var(--sand);
+      white-space: nowrap;
+    }
+  
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links li { list-style: none; }
+    .nav-links a.tab-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-light);
+      transition: color 0.2s, transform 0.2s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .nav-links a.tab-btn:hover { color: var(--ink); }
+    .nav-links a.tab-btn.active {
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    /* ── HAMBURGER & MOBILE MENU ── */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1000;
+    }
+    .hamburger {
+      width: 20px;
+      height: 2px;
+      background: var(--ink);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .hamburger::before, .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background: var(--ink);
+      transition: transform 0.3s, top 0.3s;
+    }
+    .hamburger::before { top: -6px; }
+    .hamburger::after { top: 6px; }
+
+    .menu-toggle.active .hamburger { background: transparent; }
+    .menu-toggle.active .hamburger::before { transform: rotate(45deg); top: 0; }
+    .menu-toggle.active .hamburger::after { transform: rotate(-45deg); top: 0; }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-menu.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      transform: translateY(20px);
+      transition: transform 0.4s ease, color 0.2s;
+    }
+    .mobile-menu.active a { transform: translateY(0); }
+    .mobile-menu a:hover { color: var(--terracotta); }
+    .mobile-menu .section-label {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+    }
+
+    /* ── HERO BANNER ──────────────────────────────── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--brown) 100%);
+      padding: 120px 40px 50px;
+      text-align: center;
+    }
+
+    .page-hero .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .page-hero h1 em { color: var(--terracotta); font-style: italic; }
+
+    .page-hero p {
+      font-family: 'Lora', serif;
+      color: var(--tan);
+      font-size: 16px;
+      max-width: 580px;
+      margin: 0 auto 20px;
+    }
+
+    .effective-badge {
+      display: inline-block;
+      background: rgba(196,114,74,0.2);
+      border: 1px solid rgba(196,114,74,0.4);
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--terracotta);
+      letter-spacing: 1px;
+    }
+
+    /* ── CONTENT PANELS ───────────────────────────── */
+    .content-panel { display: none; }
+    .content-panel.active { display: block; }
+
+    .doc-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+
+    /* ── SECTION HEADINGS ─────────────────────────── */
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+
+    h2.doc-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+
+    h3.doc-h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 36px 0 12px;
+    }
+
+    .doc-intro {
+      font-size: 16px;
+      color: var(--text-light);
+      max-width: 680px;
+      margin-bottom: 44px;
+      border-left: 3px solid var(--terracotta);
+      padding-left: 18px;
+      font-style: italic;
+    }
+
+    p.doc-p { margin-bottom: 16px; font-size: 15.5px; line-height: 1.8; }
+
+    /* ── INFO BOX ─────────────────────────────────── */
+    .info-box {
+      background: var(--warm-white);
+      border: 1px solid var(--sand);
+      border-left: 4px solid var(--terracotta);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .info-box .ib-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--terracotta);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .info-box p { font-size: 14.5px; color: var(--text); margin: 0; }
+
+    /* ── DEFINITION LIST ──────────────────────────── */
+    .def-list { margin: 20px 0 28px; }
+
+    .def-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .def-item:last-child { border-bottom: none; }
+
+    .def-term {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding-top: 2px;
+    }
+
+    .def-desc { font-size: 14.5px; color: var(--text); line-height: 1.7; }
+
+    /* ── STYLED LIST ──────────────────────────────── */
+    ul.doc-list { margin: 12px 0 20px; padding: 0; list-style: none; }
+
+    ul.doc-list li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    ul.doc-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--terracotta);
+      opacity: 0.7;
+    }
+
+    ol.doc-olist {
+      margin: 12px 0 20px;
+      padding: 0;
+      list-style: none;
+      counter-reset: doc-counter;
+    }
+
+    ol.doc-olist li {
+      position: relative;
+      padding-left: 36px;
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.7;
+      counter-increment: doc-counter;
+    }
+
+    ol.doc-olist li::before {
+      content: counter(doc-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--terracotta);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    /* ── DIVIDER ──────────────────────────────────── */
+    .doc-divider {
+      border: none;
+      border-top: 1px solid var(--sand);
+      margin: 48px 0;
+    }
+
+    /* ── TABLE ────────────────────────────────────── */
+    .doc-table-wrap { overflow-x: auto; margin: 20px 0 32px; }
+
+    table.doc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    table.doc-table th {
+      background: var(--dark);
+      color: #fff;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 12px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.doc-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--sand);
+      color: var(--text);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    table.doc-table tr:nth-child(even) td { background: var(--warm-white); }
+
+    /* ── FAQ ACCORDION ────────────────────────────── */
+    .faq-section-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--terracotta);
+      margin: 44px 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--sand);
+    }
+
+    .faq-item {
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: var(--warm-white);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 18px 22px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .faq-q-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.35;
+    }
+
+    .faq-icon {
+      width: 28px; height: 28px;
+      background: var(--sand);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .faq-icon svg { width: 14px; height: 14px; stroke: var(--brown); transition: transform 0.25s; }
+
+    .faq-item.open .faq-icon { background: var(--terracotta); }
+    .faq-item.open .faq-icon svg { stroke: #fff; transform: rotate(45deg); }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+    }
+
+    .faq-item.open .faq-a { max-height: 600px; }
+
+    .faq-a-inner {
+      padding: 0 22px 20px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+      border-top: 1px solid var(--sand);
+      padding-top: 16px;
+    }
+
+    .faq-a-inner p { margin-bottom: 10px; }
+    .faq-a-inner p:last-child { margin-bottom: 0; }
+
+    /* ── DATA SAFETY FORM ─────────────────────────── */
+    .safety-card {
+      background: var(--warm-white);
+      border: 1px solid var(--sand);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .safety-card-head {
+      background: var(--dark);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .safety-card-icon {
+      width: 36px; height: 36px;
+      background: var(--terracotta);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .safety-card-icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; }
+
+    .safety-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .safety-card-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--tan);
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .safety-card-body { padding: 22px 22px; }
+
+    .safety-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--sand);
+      flex-wrap: wrap;
+    }
+
+    .safety-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .safety-field { font-size: 14px; color: var(--text); flex: 1; min-width: 200px; }
+    .safety-field strong { color: var(--dark); display: block; margin-bottom: 3px; font-weight: 600; font-family: 'Lora', serif; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .pill-green { background: #e6f4ea; color: #2d6a4f; }
+    .pill-amber { background: #fff3e0; color: #a05c00; }
+    .pill-red { background: #fce8e6; color: #8b2020; }
+    .pill-blue { background: #e8f0fe; color: #1a56b0; }
+    .pill-gray { background: var(--sand); color: var(--brown); }
+
+    .pill-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    .pill-green .pill-dot { background: #2d6a4f; }
+    .pill-amber .pill-dot { background: #a05c00; }
+    .pill-red .pill-dot { background: #8b2020; }
+    .pill-blue .pill-dot { background: #1a56b0; }
+    .pill-gray .pill-dot { background: var(--brown); }
+
+    /* ── CONTACT / FOOTER ─────────────────────────── */
+    .legal-footer {
+      background: var(--dark);
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .legal-footer .lf-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .legal-footer .lf-title em { color: var(--terracotta); font-style: italic; }
+
+    .legal-footer p {
+      font-size: 14px;
+      color: var(--tan);
+      margin-bottom: 8px;
+    }
+
+    .legal-footer a {
+      color: var(--terracotta);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--terracotta);
+    }
+
+    .lf-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+
+    .lf-links button {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      background: none;
+      border: none;
+      color: var(--tan);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: color 0.2s;
+    }
+
+    .lf-links button:hover { color: var(--terracotta); }
+
+    .lf-copy {
+      margin-top: 30px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-light);
+      opacity: 0.7;
+    }
+
+
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 768px) {
+      nav.site-nav { 
+        padding: 0.75rem 1.25rem; 
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+      }
+      .menu-toggle { display: block; justify-self: start; }
+      .nav-logo { justify-self: center; font-size: 1.1rem; }
+      .nav-logo span { font-size: 1.1rem; }
+      .nav-legal-label { display: none; }
+      .nav-links { display: none; }
+      
+      .page-hero { padding: 100px 20px 36px; }
+      .doc-container { padding: 36px 20px 60px; }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 1rem; }
+      .page-hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+
+<!-- ── SITE NAV ─────────────────────────────────────── -->
+<nav class="site-nav">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+    <div class="hamburger"></div>
+  </button>
+
+  <div style="display: flex; align-items: center;">
+    <a href="index.html" class="nav-logo">
+      Arg<span class="for">u</span><span class="against">u</span>u
+    </a>
+    <span class="nav-legal-label">Legal &amp; Policy Center</span>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="javascript:void(0)" class="tab-btn active" onclick="switchTab('privacy', this)">Privacy Policy</a></li>
+    <li><a href="javascript:void(0)" class="tab-btn" onclick="switchTab('terms', this)">Terms &amp; Conditions</a></li>
+    <li><a href="javascript:void(0)" class="tab-btn" onclick="switchTab('faq', this)">FAQ</a></li>
+    <li><a href="javascript:void(0)" class="tab-btn" onclick="switchTab('safety', this)">Data Safety</a></li>
+  </ul>
+
+  <div class="nav-actions-placeholder" style="width: 20px; visibility: hidden;"></div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="section-label">Legal Menu</div>
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="javascript:void(0)" class="tab-btn active" onclick="switchTab('privacy', this); toggleMenu();">Privacy Policy</a>
+  <a href="javascript:void(0)" class="tab-btn" onclick="switchTab('terms', this); toggleMenu();">Terms &amp; Conditions</a>
+  <a href="javascript:void(0)" class="tab-btn" onclick="switchTab('faq', this); toggleMenu();">FAQ</a>
+  <a href="javascript:void(0)" class="tab-btn" onclick="switchTab('safety', this); toggleMenu();">Data Safety</a>
+</div>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  PRIVACY POLICY                                    -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="panel-privacy" class="content-panel active">
+  <div class="page-hero">
+    <div class="eyebrow">Legal Document</div>
+    <h1>Privacy <em>Policy</em></h1>
+    <p>We are committed to protecting your personal information and being transparent about how we collect, use, and safeguard your data.</p>
+    <span class="effective-badge">Effective Date: April 10, 2026</span>
+  </div>
+
+  <div class="doc-container">
+    <p class="doc-intro">This Privacy Policy governs the collection, processing, storage, and disclosure of personal data by Blue Particle Studios ("we," "us," "our") in connection with the Arguuu mobile application and any related services (collectively, the "Service"). Please read this policy carefully before using Arguuu.</p>
+
+    <div class="section-label">Section 01</div>
+    <h2 class="doc-h2">Who We Are</h2>
+    <p class="doc-p">Arguuu is a structured real-time debate application developed and operated by <strong>Blue Particle Studios</strong>, founded by Wali Medugu Emmanuel, based in Abuja, Federal Capital Territory, Nigeria. For all privacy-related enquiries, contact us at <strong>privacy@arguuu.app</strong>.</p>
+    <p class="doc-p">This policy complies with the <strong>Nigeria Data Protection Regulation (NDPR) 2019</strong>, the <strong>Nigeria Data Protection Act 2023</strong>, and, where applicable to international users, the principles of the <strong>General Data Protection Regulation (GDPR)</strong>.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 02</div>
+    <h2 class="doc-h2">Definitions</h2>
+    <div class="def-list">
+      <div class="def-item"><div class="def-term">Personal Data</div><div class="def-desc">Any information that directly or indirectly identifies a natural person.</div></div>
+      <div class="def-item"><div class="def-term">User</div><div class="def-desc">Any individual who creates an account, accesses, or uses the Arguuu application.</div></div>
+      <div class="def-item"><div class="def-term">Debate Content</div><div class="def-desc">Text messages, tagged segments, reactions, and arguments submitted by users during a debate session.</div></div>
+      <div class="def-item"><div class="def-term">WIT Score</div><div class="def-desc">Arguuu's proprietary "Win-Intelligence-Track" scoring metric derived from user debate performance, voting outcomes, and participation history.</div></div>
+      <div class="def-item"><div class="def-term">Processor</div><div class="def-desc">A third party that processes personal data on our behalf. Supabase, Inc. is our primary data processor.</div></div>
+      <div class="def-item"><div class="def-term">Controller</div><div class="def-desc">Blue Particle Studios, the entity that determines the purposes and means of processing personal data.</div></div>
+    </div>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 03</div>
+    <h2 class="doc-h2">Data We Collect</h2>
+    <p class="doc-p">We collect the minimum data necessary to provide a functional and safe experience. Below is a complete breakdown of all data categories we collect.</p>
+
+    <h3 class="doc-h3">3.1 — Account &amp; Identity Data</h3>
+    <ul class="doc-list">
+      <li>Email address (used for account creation, authentication, and service communications)</li>
+      <li>Username (publicly visible, chosen by you at registration)</li>
+      <li>Profile avatar or display initials (generated from username if no avatar is uploaded)</li>
+      <li>Account creation date and last login timestamp</li>
+      <li>Hashed authentication credentials (we never store plaintext passwords)</li>
+    </ul>
+
+    <h3 class="doc-h3">3.2 — Debate &amp; Interaction Data</h3>
+    <ul class="doc-list">
+      <li>All debate messages (chat bubbles) including their content, word count, turn number, and timestamp</li>
+      <li>Tagged segments within debate messages</li>
+      <li>Emoji reactions placed on debate messages</li>
+      <li>Votes cast in debate voting sessions (including vote weight multiplier applied)</li>
+      <li>Debate side assignments (FOR / AGAINST) and room participation history</li>
+      <li>Resignation events and system messages associated with your debates</li>
+    </ul>
+
+    <h3 class="doc-h3">3.3 — Performance &amp; Scoring Data</h3>
+    <ul class="doc-list">
+      <li>WIT Score — cumulative and per-debate scores derived from voting outcomes and participation metrics</li>
+      <li>Debate win/loss/draw record</li>
+      <li>Vote weight multiplier assigned to your account based on credibility metrics</li>
+    </ul>
+
+    <h3 class="doc-h3">3.4 — Technical &amp; Device Data</h3>
+    <ul class="doc-list">
+      <li>Device operating system type (Android/iOS) and version</li>
+      <li>App version installed</li>
+      <li>Crash reports and error logs (anonymised where possible)</li>
+      <li>IP address (processed by Supabase for security and fraud prevention; not stored long-term by us)</li>
+      <li>Session identifiers and real-time subscription tokens</li>
+    </ul>
+
+    <h3 class="doc-h3">3.5 — Data We Do NOT Collect</h3>
+    <div class="info-box">
+      <div class="ib-title">Important</div>
+      <p>Arguuu does <strong>not</strong> collect your full legal name, phone number, date of birth, precise GPS location, contacts list, camera or microphone data, financial payment details, biometric data, or any sensitive personal categories as defined under the NDPR/GDPR. We do not collect data from children under the age of 13.</p>
+    </div>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 04</div>
+    <h2 class="doc-h2">How We Use Your Data</h2>
+    <div class="doc-table-wrap">
+      <table class="doc-table">
+        <thead>
+          <tr><th>Purpose</th><th>Data Used</th><th>Legal Basis (NDPR/GDPR)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Create and manage your account</td><td>Email, username, credentials</td><td>Performance of a contract</td></tr>
+          <tr><td>Enable real-time debate functionality</td><td>Debate content, side assignment, timestamps</td><td>Performance of a contract</td></tr>
+          <tr><td>Calculate and display WIT scores and leaderboards</td><td>Votes, debate history, scoring data</td><td>Legitimate interests</td></tr>
+          <tr><td>Prevent abuse, spam, and rule violations</td><td>Message content, account activity logs</td><td>Legitimate interests</td></tr>
+          <tr><td>Respond to account or safety issues</td><td>Email, account ID, reported content</td><td>Legitimate interests / Legal obligation</td></tr>
+          <tr><td>Improve the app (analytics, bug fixing)</td><td>Crash reports, device data, usage patterns</td><td>Legitimate interests</td></tr>
+          <tr><td>Send service-related notifications</td><td>Email, push token (if enabled)</td><td>Performance of a contract / Consent</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 05</div>
+    <h2 class="doc-h2">Data Sharing &amp; Disclosure</h2>
+    <p class="doc-p"><strong>We do not sell, rent, or trade your personal data to any third party under any circumstances.</strong></p>
+    <p class="doc-p">We share data only in the following limited circumstances:</p>
+    <ul class="doc-list">
+      <li><strong>Supabase, Inc.</strong> — our backend infrastructure provider. Supabase processes your account data, debate content, and real-time events under a Data Processing Agreement. Supabase servers are hosted in the EU (West) and US (East) regions. See <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a>.</li>
+      <li><strong>Other Users</strong> — your username, debate messages, reactions, and WIT score are visible to other authenticated users within the platform as part of the core service. You agree to this visibility upon account creation.</li>
+      <li><strong>Law Enforcement / Legal Obligations</strong> — we may disclose information where required by applicable Nigerian law, court order, or to protect the safety of our users or the public.</li>
+      <li><strong>Business Transfers</strong> — in the event of a merger, acquisition, or asset sale, user data may be transferred to the successor entity, subject to equivalent privacy protections. We will notify users 30 days in advance.</li>
+    </ul>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 06</div>
+    <h2 class="doc-h2">Data Retention</h2>
+    <div class="def-list">
+      <div class="def-item"><div class="def-term">Account Data</div><div class="def-desc">Retained for the lifetime of your account. Deleted within 30 days of account deletion request.</div></div>
+      <div class="def-item"><div class="def-term">Debate Content</div><div class="def-desc">Retained indefinitely as part of debate archives unless you request deletion or delete your account.</div></div>
+      <div class="def-item"><div class="def-term">Crash Logs</div><div class="def-desc">Retained for a maximum of 90 days from collection, then automatically purged.</div></div>
+      <div class="def-item"><div class="def-term">Voting Records</div><div class="def-desc">Retained as part of debate history and scoring records. May be retained in anonymised form after account deletion for scoring integrity.</div></div>
+      <div class="def-item"><div class="def-term">Deleted Accounts</div><div class="def-desc">Following account deletion, we retain certain anonymised or aggregated data that cannot identify you. All personally identifiable information is purged within 30 days.</div></div>
+    </div>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 07</div>
+    <h2 class="doc-h2">Your Rights</h2>
+    <p class="doc-p">Under the NDPR 2019 and NDPA 2023, and mirroring GDPR principles, you have the following rights regarding your personal data:</p>
+    <ul class="doc-list">
+      <li><strong>Right of Access</strong> — request a copy of all personal data we hold about you</li>
+      <li><strong>Right to Rectification</strong> — request correction of inaccurate or incomplete data</li>
+      <li><strong>Right to Erasure ("Right to be Forgotten")</strong> — request deletion of your personal data where there is no overriding legitimate purpose for retention</li>
+      <li><strong>Right to Data Portability</strong> — receive your personal data in a commonly used, machine-readable format</li>
+      <li><strong>Right to Restriction of Processing</strong> — request that we limit how we use your data in certain circumstances</li>
+      <li><strong>Right to Object</strong> — object to processing based on legitimate interests</li>
+      <li><strong>Right to Withdraw Consent</strong> — where processing is based on consent, you may withdraw at any time</li>
+    </ul>
+    <p class="doc-p">To exercise any of these rights, contact us at <strong>privacy@arguuu.app</strong>. We will respond within <strong>30 days</strong>. If you are dissatisfied with our response, you may lodge a complaint with the <strong>Nigeria Data Protection Commission (NDPC)</strong>.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 08</div>
+    <h2 class="doc-h2">Security</h2>
+    <p class="doc-p">We implement appropriate technical and organisational measures to protect your personal data, including:</p>
+    <ul class="doc-list">
+      <li>All data in transit is encrypted via TLS 1.2 or higher</li>
+      <li>All data at rest is encrypted by Supabase using AES-256</li>
+      <li>Row Level Security (RLS) policies on all Supabase database tables to ensure users can only access data they are authorised to see</li>
+      <li>Authentication tokens are short-lived and rotated regularly</li>
+      <li>We never store service role or administrative API keys in client-side code</li>
+      <li>Periodic security reviews of our codebase and infrastructure configurations</li>
+    </ul>
+    <p class="doc-p">No system is completely impenetrable. In the event of a data breach, we will notify affected users and, where required, the NDPC within 72 hours of becoming aware of the breach.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 09</div>
+    <h2 class="doc-h2">Children's Privacy</h2>
+    <p class="doc-p">Arguuu is not intended for use by individuals under the age of 13. We do not knowingly collect personal data from children under 13. If we become aware that a child under 13 has provided us with personal data, we will promptly delete it. If you are a parent or guardian and believe your child has registered on Arguuu, contact us immediately at <strong>privacy@arguuu.app</strong>.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 10</div>
+    <h2 class="doc-h2">International Data Transfers</h2>
+    <p class="doc-p">Your data may be transferred to and processed in countries outside Nigeria, specifically where Supabase hosts its infrastructure (EU and US regions). Such transfers occur under appropriate safeguards, including contractual clauses consistent with the NDPA 2023's international transfer requirements.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 11</div>
+    <h2 class="doc-h2">Changes to This Policy</h2>
+    <p class="doc-p">We reserve the right to update this Privacy Policy at any time. When we make material changes, we will notify users via in-app notification and/or email at least <strong>14 days</strong> before the changes take effect. Continued use of Arguuu after the effective date constitutes acceptance of the updated policy.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Contact</div>
+    <h2 class="doc-h2">Contact &amp; Complaints</h2>
+    <div class="info-box">
+      <div class="ib-title">Privacy Contact</div>
+      <p><strong>Blue Particle Studios</strong><br />
+      Attn: Privacy Officer<br />
+      Email: <strong>privacy@arguuu.app</strong><br />
+      Regulator: Nigeria Data Protection Commission (NDPC) — <a href="https://ndpc.gov.ng" target="_blank" rel="noopener">ndpc.gov.ng</a></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  TERMS AND CONDITIONS                              -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="panel-terms" class="content-panel">
+  <div class="page-hero">
+    <div class="eyebrow">Legal Document</div>
+    <h1>Terms &amp; <em>Conditions</em></h1>
+    <p>These terms govern your use of Arguuu. By creating an account, you agree to be bound by them.</p>
+    <span class="effective-badge">Effective Date: April 10, 2026</span>
+  </div>
+
+  <div class="doc-container">
+    <p class="doc-intro">These Terms and Conditions ("Terms") constitute a legally binding agreement between you ("User," "you") and Blue Particle Studios ("Company," "we," "us") governing access to and use of the Arguuu mobile application and all related services. Read these Terms carefully before registering or using Arguuu.</p>
+
+    <div class="section-label">Section 01</div>
+    <h2 class="doc-h2">Acceptance of Terms</h2>
+    <p class="doc-p">By downloading, installing, registering for, or using Arguuu in any way, you confirm that you have read, understood, and agree to be bound by these Terms and our Privacy Policy, which is incorporated herein by reference. If you do not agree to these Terms, you must not use Arguuu.</p>
+    <p class="doc-p">If you are accepting these Terms on behalf of an organisation, you represent that you have the authority to bind that organisation to these Terms.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 02</div>
+    <h2 class="doc-h2">Eligibility</h2>
+    <p class="doc-p">To use Arguuu, you must:</p>
+    <ul class="doc-list">
+      <li>Be at least <strong>13 years of age</strong>. If you are between 13 and 18 years of age, you must have the consent of a parent or legal guardian who agrees to these Terms on your behalf.</li>
+      <li>Be capable of entering a legally binding agreement in your jurisdiction</li>
+      <li>Not be prohibited from receiving services under applicable law</li>
+      <li>Not have previously had an Arguuu account terminated for violations of these Terms</li>
+    </ul>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 03</div>
+    <h2 class="doc-h2">Account Registration</h2>
+    <p class="doc-p">You must create an account to access most features of Arguuu. When registering, you agree to:</p>
+    <ul class="doc-list">
+      <li>Provide accurate and truthful information, including a valid email address and a unique username</li>
+      <li>Keep your login credentials confidential and not share them with any third party</li>
+      <li>Notify us immediately at <strong>support@arguuu.app</strong> if you suspect any unauthorised access to your account</li>
+      <li>Maintain the accuracy of your account information and update it as necessary</li>
+    </ul>
+    <p class="doc-p">You are solely responsible for all activity that occurs under your account. Blue Particle Studios is not liable for any loss resulting from unauthorised use of your account credentials.</p>
+    <p class="doc-p">Usernames must not impersonate any person, organisation, or entity, and must not include offensive, discriminatory, or legally protected terms. We reserve the right to require a username change at our discretion.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 04</div>
+    <h2 class="doc-h2">The Arguuu Service</h2>
+    <p class="doc-p">Arguuu provides a structured real-time debate platform. Key service features include:</p>
+    <ul class="doc-list">
+      <li><strong>Debate Rooms</strong> — topic-based rooms in which two users debate FOR or AGAINST a stated motion</li>
+      <li><strong>Matchmaking</strong> — an automated system that pairs users based on availability and preferences</li>
+      <li><strong>Chat Bubbles</strong> — structured debate messages subject to content limits (maximum 200 characters per bubble; maximum 3 bubbles per turn)</li>
+      <li><strong>Tagging &amp; Reactions</strong> — the ability to tag segments of opponent messages and place emoji reactions</li>
+      <li><strong>Voting</strong> — audience members may vote on who argued better, or vote to extend a debate by 5 minutes</li>
+      <li><strong>WIT Scoring</strong> — a proprietary algorithm that assigns cumulative scores based on debate performance and voting outcomes</li>
+    </ul>
+    <p class="doc-p">We reserve the right to modify, suspend, or discontinue any feature of the Service at any time without prior notice. We will endeavour to provide reasonable notice of material changes where operationally possible.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 05</div>
+    <h2 class="doc-h2">Acceptable Use Policy</h2>
+    <p class="doc-p">You agree to use Arguuu only for lawful purposes and in a manner consistent with these Terms. You must not, under any circumstances:</p>
+    <h3 class="doc-h3">5.1 — Content Prohibitions</h3>
+    <ul class="doc-list">
+      <li>Post, transmit, or encourage content that is hateful, discriminatory, threatening, or harassing based on race, ethnicity, religion, gender, sexual orientation, disability, or any other characteristic</li>
+      <li>Share content that constitutes defamation, libel, or deliberate misinformation intended to harm another person</li>
+      <li>Transmit obscene, sexually explicit, or pornographic content</li>
+      <li>Share content that promotes, glorifies, or incites violence, self-harm, or illegal activity</li>
+      <li>Reproduce or distribute copyrighted material without authorisation</li>
+      <li>Share personal information of third parties without their consent (doxxing)</li>
+    </ul>
+    <h3 class="doc-h3">5.2 — Conduct Prohibitions</h3>
+    <ul class="doc-list">
+      <li>Attempt to gain unauthorised access to any other user's account or to our systems</li>
+      <li>Use automated scripts, bots, or artificial intelligence to generate debate messages without disclosure</li>
+      <li>Manipulate voting outcomes through coordinated inauthentic behaviour, vote brigading, or sock-puppet accounts</li>
+      <li>Artificially inflate your WIT Score through fraudulent means</li>
+      <li>Reverse-engineer, decompile, or attempt to extract the source code of the Arguuu application</li>
+      <li>Resell, sublicense, or commercially exploit any part of the Service without our written consent</li>
+      <li>Impersonate another user, real individual, or entity</li>
+      <li>Introduce malicious code, viruses, or interfere with the integrity of the Service</li>
+    </ul>
+    <p class="doc-p">Violation of the Acceptable Use Policy may result in immediate account suspension or termination without prior notice, at our sole discretion.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 06</div>
+    <h2 class="doc-h2">User-Generated Content</h2>
+    <p class="doc-p">You retain ownership of the debate content you create. However, by submitting content to Arguuu, you grant Blue Particle Studios a <strong>non-exclusive, royalty-free, worldwide, sublicensable, irrevocable licence</strong> to use, reproduce, display, distribute, and adapt your content for the purpose of operating, improving, and promoting the Service, including displaying debate transcripts to other users.</p>
+    <p class="doc-p">You represent and warrant that your content does not infringe the intellectual property rights, privacy rights, or any other rights of any third party.</p>
+    <p class="doc-p">We do not endorse, and are not responsible or liable for, any content posted by users. We reserve the right to remove any content that violates these Terms without notice or liability.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 07</div>
+    <h2 class="doc-h2">WIT Scores &amp; Voting Integrity</h2>
+    <p class="doc-p">WIT Scores are calculated by Arguuu's proprietary algorithm and are subject to change as the algorithm is updated. WIT Scores are provided for entertainment and competitive engagement purposes only. They do not constitute a formal evaluation of a user's intelligence, skill, or character.</p>
+    <p class="doc-p">Vote weights are assigned by the system based on activity and credibility factors. Vote weight assignments are final and at the discretion of Arguuu's scoring engine. We reserve the right to correct or reset scores in cases of detected manipulation or technical errors.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 08</div>
+    <h2 class="doc-h2">Intellectual Property</h2>
+    <p class="doc-p">All rights, title, and interest in and to the Arguuu application, including but not limited to the name "Arguuu," the logo, the WIT scoring system, the matchmaking algorithm, the UI design, and all proprietary technology, are owned exclusively by Blue Particle Studios or its licensors.</p>
+    <p class="doc-p">Nothing in these Terms grants you any right, licence, or interest in our intellectual property beyond the limited, revocable licence to use the Service for personal, non-commercial purposes as described herein.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 09</div>
+    <h2 class="doc-h2">Account Suspension &amp; Termination</h2>
+    <p class="doc-p">We reserve the right to suspend or permanently terminate your account, with or without notice, if we reasonably believe you have:</p>
+    <ul class="doc-list">
+      <li>Violated any provision of these Terms or our Acceptable Use Policy</li>
+      <li>Engaged in fraudulent, abusive, or illegal conduct</li>
+      <li>Threatened the security or integrity of our platform or other users</li>
+    </ul>
+    <p class="doc-p">You may delete your account at any time through the in-app account settings. Deletion is permanent and will result in the loss of your WIT score, debate history, and all associated data, subject to the retention provisions in our Privacy Policy.</p>
+    <p class="doc-p">If you believe your account has been suspended in error, contact us at <strong>support@arguuu.app</strong> to appeal. We will review appeals within 14 business days.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 10</div>
+    <h2 class="doc-h2">Disclaimers</h2>
+    <p class="doc-p">THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AVAILABILITY, ACCURACY, OR NON-INFRINGEMENT.</p>
+    <p class="doc-p">WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, OR FREE FROM VIRUSES OR OTHER HARMFUL COMPONENTS. WE MAKE NO GUARANTEES REGARDING THE ACCURACY, RELIABILITY, OR COMPLETENESS OF CONTENT POSTED BY USERS.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 11</div>
+    <h2 class="doc-h2">Limitation of Liability</h2>
+    <p class="doc-p">TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, BLUE PARTICLE STUDIOS AND ITS OFFICERS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF DATA, LOSS OF PROFITS, OR REPUTATIONAL HARM, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF OR INABILITY TO USE THE SERVICE.</p>
+    <p class="doc-p">Our total aggregate liability to you for all claims arising from these Terms or your use of the Service shall not exceed the greater of (a) the amount you have paid to us in the 12 months preceding the claim, or (b) ₦10,000 NGN.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 12</div>
+    <h2 class="doc-h2">Indemnification</h2>
+    <p class="doc-p">You agree to indemnify, defend, and hold harmless Blue Particle Studios, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with: (a) your use of or access to the Service; (b) your violation of these Terms; (c) your content; or (d) your violation of any third-party right, including intellectual property or privacy rights.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 13</div>
+    <h2 class="doc-h2">Governing Law &amp; Dispute Resolution</h2>
+    <p class="doc-p">These Terms shall be governed by and construed in accordance with the laws of the <strong>Federal Republic of Nigeria</strong>, without regard to its conflict of law principles.</p>
+    <p class="doc-p">Any dispute arising out of or in connection with these Terms shall first be subject to good-faith negotiation for a period of 30 days. If unresolved, disputes shall be submitted to the exclusive jurisdiction of the courts of the <strong>Federal Capital Territory, Abuja, Nigeria</strong>.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Section 14</div>
+    <h2 class="doc-h2">Amendments</h2>
+    <p class="doc-p">We reserve the right to modify these Terms at any time. Material amendments will be communicated via in-app notification and/or email with at least 14 days' notice before taking effect. Continued use of the Service after the amended Terms take effect constitutes acceptance of the revised Terms.</p>
+
+    <hr class="doc-divider" />
+
+    <div class="section-label">Contact</div>
+    <h2 class="doc-h2">Contact Us</h2>
+    <div class="info-box">
+      <div class="ib-title">Legal Enquiries</div>
+      <p><strong>Blue Particle Studios</strong><br />
+      Email: <strong>legal@arguuu.app</strong><br />
+      Support: <strong>support@arguuu.app</strong><br />
+      Abuja, Federal Capital Territory, Nigeria</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  FAQ                                               -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="panel-faq" class="content-panel">
+  <div class="page-hero">
+    <div class="eyebrow">Help Center</div>
+    <h1>Frequently Asked <em>Questions</em></h1>
+    <p>Everything you need to know about using Arguuu, your data, your rights, and how the platform works.</p>
+    <span class="effective-badge">Updated: April 10, 2026</span>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- GETTING STARTED -->
+    <div class="faq-section-title">Getting Started</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What is Arguuu?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Arguuu is a structured real-time debate application built for people who love making arguments, dissecting ideas, and competing intellectually. Two users debate a topic — one FOR the motion, one AGAINST — while an audience watches, reacts, and votes on who argued best. Performance is tracked via the WIT (Win-Intelligence-Track) score, which builds over time across all your debates.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Who can use Arguuu?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Anyone aged 13 and above can use Arguuu. Users between 13–17 must have parental or guardian consent. The platform is designed for thoughtful, civil discourse — no prior debate experience required.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Is Arguuu free to use?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes, the core Arguuu experience is completely free. All debate features, matchmaking, WIT scoring, and audience participation are available at no cost. If we introduce premium features in the future, we will notify users clearly and in advance.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What platforms is Arguuu available on?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Arguuu is available as a native mobile application for Android and iOS devices. It is built with Flutter, which means the experience is consistent and smooth across both platforms.</p></div></div>
+    </div>
+
+    <!-- HOW DEBATES WORK -->
+    <div class="faq-section-title">How Debates Work</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How do I start or join a debate?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>You can browse or create Debate Rooms from the home screen. Once inside a room, you can join as a debater (FOR or AGAINST) or as an audience member. Matchmaking will automatically pair you with an opponent when one is available. You'll receive a notification when a match is found and will be taken to a countdown screen before the debate begins.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What are the message rules during a debate?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Each message (called a "chat bubble") has a maximum length of <strong>200 characters</strong> and must contain at least 1 word. You may send a maximum of <strong>3 bubbles per turn</strong>. These constraints are intentional — they reward concise, punchy argumentation over rambling. Turns alternate between debaters, so strategy is key.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What is tagging, and how does it work?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Tagging lets you highlight specific text within your opponent's message to draw attention to it — useful for pointing out logical fallacies, contradictions, or key admissions. Audience members can see tagged segments and they contribute to the overall analysis of the debate.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Can I resign from a debate?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. You may resign from a debate at any time. A resignation is recorded as a loss and will affect your WIT score accordingly. Frequent or unexplained resignations may also affect your matchmaking priority. Always try to complete debates — sportsmanship is a core value of the Arguuu community.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How does the voting system work?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>At the end of a debate, audience members enter a voting screen and select either: the FOR debater, the AGAINST debater, or "Add 5 Minutes" (to extend the debate). Each vote carries a weight multiplier (e.g., 1.2×) based on the voter's credibility score. The weighted tally determines the winner. Debaters cannot vote on their own debates.</p></div></div>
+    </div>
+
+    <!-- WIT SCORE -->
+    <div class="faq-section-title">WIT Score</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What exactly is a WIT Score?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>WIT stands for <strong>Win-Intelligence-Track</strong>. It is Arguuu's proprietary ranking metric that evaluates your debate performance over time. Factors influencing your WIT score include: debate wins and losses (weighted by opponent strength), audience vote margins, completion rate (non-resignations), and participation frequency. Your WIT score grows with consistent, quality debating.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Can my WIT Score be reset or lost?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Your WIT score decreases naturally from losses and resignations — that's by design. However, scores will only be forcibly reset by us in cases of confirmed cheating, vote manipulation, or account reinstatement following a ban. We will notify you if this occurs. Deleting your account permanently deletes your WIT score.</p></div></div>
+    </div>
+
+    <!-- PRIVACY & DATA -->
+    <div class="faq-section-title">Privacy &amp; Your Data</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What data does Arguuu collect about me?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We collect your email, username, debate content (messages, reactions, votes), WIT score history, and basic device/technical data for crash reporting. We do not collect your phone number, location, contacts, financial information, or any sensitive personal data. Full details are in our Privacy Policy.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Does Arguuu sell my data?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>No. We do not sell, rent, trade, or otherwise transfer your personal data to third parties for commercial purposes. Your data is used exclusively to operate and improve the Arguuu service.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How do I delete my account and data?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>You can delete your account directly from the in-app settings under "Account." Deletion is permanent and initiates a 30-day process during which your personally identifiable data is erased from our systems. Some anonymised, non-identifiable data (such as aggregate debate statistics) may be retained for platform integrity purposes. To request an earlier deletion or if you have trouble accessing settings, email <strong>privacy@arguuu.app</strong>.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Are my debate messages public?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. Debate messages are visible to all authenticated users who are in the debate room or watching the debate. This is a core part of the platform's functionality. Do not share sensitive personal information within debate messages. Your username is always attached to your messages.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Where is my data stored?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Your data is stored on Supabase infrastructure, which is hosted in EU-West and US-East data centres. All data is encrypted in transit (TLS) and at rest (AES-256). We maintain Row Level Security on all database tables so that data is accessible only by authorised parties.</p></div></div>
+    </div>
+
+    <!-- TRUST & SAFETY -->
+    <div class="faq-section-title">Trust &amp; Safety</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How do I report abusive or harmful content?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>You can report any message or user using the in-app report button accessible from the debate screen or user profile. Reports are reviewed by our moderation team within 48 hours. For urgent safety matters, email <strong>safety@arguuu.app</strong> directly.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What happens if I am banned?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>If your account is banned, you will receive a notification explaining the reason. Bans may be temporary (for first offences) or permanent (for severe or repeated violations). You can appeal a ban by emailing <strong>support@arguuu.app</strong> with your username and a description of your case. All appeals are reviewed within 14 business days.</p></div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Does Arguuu use AI to moderate content?</span>
+        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>We may use automated content analysis tools to flag potentially harmful content for human review. Final moderation decisions are always made by a human moderator. We do not use fully automated decision-making that results in account termination without human oversight.</p></div></div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="faq-section-title">Still Need Help?</div>
+    <div class="info-box">
+      <div class="ib-title">Contact Support</div>
+      <p>For any questions not covered here, reach our team at <strong>support@arguuu.app</strong>. For privacy concerns: <strong>privacy@arguuu.app</strong>. For safety issues: <strong>safety@arguuu.app</strong>. We typically respond within 24–48 hours.</p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════ -->
+<!--  DATA SAFETY FORM                                  -->
+<!-- ══════════════════════════════════════════════════ -->
+<div id="panel-safety" class="content-panel">
+  <div class="page-hero">
+    <div class="eyebrow">Transparency Report</div>
+    <h1>Data <em>Safety</em> Form</h1>
+    <p>A complete, transparent breakdown of data collected by Arguuu — aligned with Google Play's Data Safety requirements and NDPR standards.</p>
+    <span class="effective-badge">Last Reviewed: April 10, 2026</span>
+  </div>
+
+  <div class="doc-container">
+    <p class="doc-intro">This Data Safety Form is intended for submission to the Google Play Store Data Safety Section and as a public transparency document. It describes all data types Arguuu collects, how they are used, whether they are shared, and the security practices in place.</p>
+
+    <!-- CARD: DATA COLLECTION OVERVIEW -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">Collection &amp; Usage Overview</div>
+          <div class="safety-card-sub">Top-level summary</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Does the app collect data?</strong>Yes, Arguuu collects user data necessary to provide the debate service.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Data Collected</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Is data shared with third parties?</strong>Only with Supabase (our backend processor) under a DPA, and with other authenticated app users as part of core functionality.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Limited Sharing</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Can users request data deletion?</strong>Yes. Users may delete their account in-app or request deletion via privacy@arguuu.app.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Deletion Available</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Is data encrypted in transit?</strong>Yes. All data is transmitted over TLS 1.2+ encrypted connections.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Encrypted in Transit</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Is data encrypted at rest?</strong>Yes. Supabase encrypts all stored data using AES-256.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Encrypted at Rest</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Does the app follow Families Policy?</strong>Arguuu is not targeted at children under 13 and does not comply with the Families Policy for under-13 audiences.</div>
+          <span class="pill pill-gray"><span class="pill-dot"></span>13+ Only</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: PERSONAL INFO -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">Personal Information</div>
+          <div class="safety-card-sub">Account &amp; identity data</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Email Address</strong>Collected at registration. Used for authentication, account recovery, and service notifications. Not shared with other users. Encrypted in storage.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Encrypted</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Username</strong>Chosen by user at registration. Publicly visible to all authenticated users within the app. Associated with all debate content.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Public</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Profile Avatar / Initials</strong>Optional avatar upload, or auto-generated initials. Displayed publicly on profile and during debates.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Optional · Public</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Full Name, Phone Number, Address</strong>Not collected.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Not Collected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: USER CONTENT -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">User-Generated Content</div>
+          <div class="safety-card-sub">Debate messages &amp; interactions</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Debate Messages (Chat Bubbles)</strong>Text content of debate messages, up to 200 characters each. Stored persistently, associated with your user ID and username. Visible to all authenticated users in the debate room.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Public</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Tagged Segments</strong>Highlighted portions of debate messages. Stored with reference to the source bubble and user who created the tag. Visible within the debate.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Public</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Reactions (Emoji)</strong>Emoji reactions placed on debate messages. Stored as aggregate counts per emoji type. Your specific reaction on a bubble is stored against your user ID.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Votes</strong>Your vote in a debate voting session (FOR / AGAINST / Extend). Stored against your user ID and the debate ID. Not publicly attributed to your username on the voting screen, but stored for scoring integrity.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Private</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Voice, Photos, Videos</strong>Not collected.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Not Collected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: APP ACTIVITY & PERFORMANCE -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">App Activity &amp; Performance</div>
+          <div class="safety-card-sub">Usage data &amp; diagnostics</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Debate History &amp; Participation Log</strong>Record of rooms joined, debates participated in, side assignments, timestamps. Used for WIT score calculation and profile display.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>WIT Score &amp; Vote Weight</strong>Cumulative score and multiplier derived from debate activity. Visible on your profile to other users.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Public</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Crash Reports &amp; Error Logs</strong>Diagnostic data collected when the app encounters an error. May include device OS version, app version, and anonymised stack trace. Retained for 90 days maximum.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Anonymised</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Session Tokens &amp; Identifiers</strong>Supabase-issued session tokens for authentication. Short-lived and rotated on each session. Not stored beyond session duration.</div>
+          <span class="pill pill-blue"><span class="pill-dot"></span>Transient · Not Stored</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Precise Location, Browsing History, Search History</strong>Not collected.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Not Collected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: DEVICE INFO -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">Device Information</div>
+          <div class="safety-card-sub">Technical identifiers</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Device OS &amp; App Version</strong>Used for compatibility checks and crash analysis. Not linked to any persistent user identifier beyond the active session.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Collected · Anonymised</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>IP Address</strong>Processed by Supabase for abuse prevention and geolocation-based rate limiting. Not stored by Arguuu beyond the request lifecycle.</div>
+          <span class="pill pill-blue"><span class="pill-dot"></span>Processed · Not Stored</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Device ID, IMEI, Advertising ID</strong>Not collected.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Not Collected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: FINANCIAL DATA -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">Financial Data</div>
+          <div class="safety-card-sub">Payments &amp; transactions</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Payment Information, Credit Card, Bank Details</strong>Arguuu is currently a free application. No payment information of any kind is collected or processed.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Not Collected</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: DATA SHARING -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">Data Sharing &amp; Third Parties</div>
+          <div class="safety-card-sub">Who receives your data</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Supabase, Inc.</strong>Backend infrastructure provider. Processes account data, debate content, real-time events. Bound by a Data Processing Agreement. Data stored in EU and US regions.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>DPA in Place</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Other Arguuu Users</strong>Username, debate messages, reactions, and WIT score are visible within the app as core functionality. You consent to this at registration.</div>
+          <span class="pill pill-blue"><span class="pill-dot"></span>In-App Visibility</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Advertising Networks</strong>Arguuu does not serve advertisements and does not share data with ad networks.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>No Ad Networks</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Analytics Providers</strong>We do not use third-party analytics SDKs (e.g. Firebase Analytics, Mixpanel). Internal usage analytics are derived from Supabase data only.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>No 3rd-Party Analytics</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Law Enforcement</strong>Data disclosed only when legally compelled by Nigerian law enforcement or a valid court order. Users will be notified where legally permissible.</div>
+          <span class="pill pill-gray"><span class="pill-dot"></span>Legal Obligation Only</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: SECURITY PRACTICES -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">Security Practices</div>
+          <div class="safety-card-sub">How we protect your data</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>Encryption in Transit</strong>TLS 1.2 or higher on all API calls and real-time WebSocket connections.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Implemented</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Encryption at Rest</strong>AES-256 encryption on all data at rest, managed by Supabase.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Implemented</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Row Level Security (RLS)</strong>Supabase RLS policies ensure users can only read and write data they are authorised to access.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Implemented</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>No Client-Side Secret Keys</strong>Service role keys and secret API credentials are never embedded in client-side code or app bundles.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Implemented</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Short-Lived Auth Tokens</strong>Authentication tokens expire automatically and are rotated on each session.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Implemented</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Data Breach Response</strong>We will notify affected users and the NDPC within 72 hours of discovering a breach.</div>
+          <span class="pill pill-blue"><span class="pill-dot"></span>Policy in Place</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: USER CONTROLS -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">User Controls &amp; Rights</div>
+          <div class="safety-card-sub">What you can do with your data</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <div class="safety-row">
+          <div class="safety-field"><strong>View Account Data</strong>View your profile, username, debate history, and WIT score at any time from within the app.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>In-App</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Update Account Data</strong>Update your email, username, or avatar via account settings.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>In-App</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Delete Account</strong>Permanently delete your account via Settings → Account → Delete Account. Data purged within 30 days.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>In-App</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Data Export / Portability Request</strong>Email privacy@arguuu.app to request a copy of your personal data in machine-readable format.</div>
+          <span class="pill pill-blue"><span class="pill-dot"></span>By Email</span>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Opt Out of Non-Essential Communications</strong>Unsubscribe from non-transactional emails via the unsubscribe link in any marketing email, or via account notification settings.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Available</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:32px;">
+      <div class="ib-title">Data Safety Contact</div>
+      <p>For Google Play Data Safety queries or any data-related requests:<br />
+      <strong>Blue Particle Studios</strong> — <strong>privacy@arguuu.app</strong><br />
+      Abuja, Federal Capital Territory, Nigeria<br />
+      NDPC Complaint Portal: <a href="https://ndpc.gov.ng" target="_blank" rel="noopener">ndpc.gov.ng</a></p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer class="legal-footer">
+  <div class="lf-title"><em>Arguuu</em> Legal Center</div>
+  <p>Developed by <strong>Blue Particle Studios</strong> · Abuja, Nigeria</p>
+  <p>Questions? <a href="mailto:legal@arguuu.app">legal@arguuu.app</a> · <a href="mailto:privacy@arguuu.app">privacy@arguuu.app</a> · <a href="mailto:support@arguuu.app">support@arguuu.app</a></p>
+  <div class="lf-links">
+    <button onclick="switchTab('privacy', document.querySelectorAll('.tab-btn')[0])">Privacy Policy</button>
+    <button onclick="switchTab('terms', document.querySelectorAll('.tab-btn')[1])">Terms &amp; Conditions</button>
+    <button onclick="switchTab('faq', document.querySelectorAll('.tab-btn')[2])">FAQ</button>
+    <button onclick="switchTab('safety', document.querySelectorAll('.tab-btn')[3])">Data Safety</button>
+  </div>
+  <div class="lf-copy">© 2026 Blue Particle Studios. All rights reserved. Arguuu and the Arguuu logo are trademarks of Blue Particle Studios.</div>
+</footer>
+
+<script>
+  function switchTab(tabId, btn) {
+    // Deactivate all panels and tabs
+    document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    // Activate the selected
+    document.getElementById('panel-' + tabId).classList.add('active');
+    
+    // If we have a toggleMenu active, handle switching there too
+    // Note: We might have multiple tab-btn elements with the same ID now (mobile vs desktop)
+    // So we'll activate all elements that match the text or just activate the btn passed
+    if (btn) btn.classList.add('active');
+    
+    // Find matching buttons in other menus (e.g. if we click in mobile, also update desktop)
+    const label = btn ? btn.textContent : '';
+    if (label) {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        if (b.textContent === label) b.classList.add('active');
+      });
+    }
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // --- MOBILE MENU LOGIC ---
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const body = document.body;
+
+  function toggleMenu() {
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    if (mobileMenu.classList.contains('active')) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+  }
+
+  menuToggle.addEventListener('click', toggleMenu);
+
+  // Close menu on ESC key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+      toggleMenu();
+    }
+  });
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    // Open the clicked item if it wasn't already open
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
