@@ -1304,20 +1304,20 @@
       </div>
       <div class="safety-card-body">
         <div class="safety-row">
-          <div class="safety-field"><strong>Does the app collect data?</strong>Yes, Arguuu collects user data necessary to provide the debate service.</div>
-          <span class="pill pill-amber"><span class="pill-dot"></span>Data Collected</span>
+          <div class="safety-field"><strong>Does the app collect data?</strong>Yes, Arguuu collects user data (email, username, interactions) to provide and improve the debate service.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Yes · Data Collected</span>
         </div>
         <div class="safety-row">
-          <div class="safety-field"><strong>Is data shared with third parties?</strong>Only with Supabase (our backend processor) under a DPA, and with other authenticated app users as part of core functionality.</div>
-          <span class="pill pill-amber"><span class="pill-dot"></span>Limited Sharing</span>
+          <div class="safety-field"><strong>Is data shared with third parties?</strong>Only with our infrastructure provider (Supabase) and as part of core app functionality visible to other users.</div>
+          <span class="pill pill-amber"><span class="pill-dot"></span>Yes · Limited Sharing</span>
         </div>
         <div class="safety-row">
-          <div class="safety-field"><strong>Can users request data deletion?</strong>Yes. Users may delete their account in-app or request deletion via privacy@arguuu.app.</div>
-          <span class="pill pill-green"><span class="pill-dot"></span>Deletion Available</span>
+          <div class="safety-field"><strong>Is data encrypted in transit?</strong>Yes. All data is transmitted over secure TLS 1.2+ encrypted connections.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Yes · Encrypted</span>
         </div>
         <div class="safety-row">
-          <div class="safety-field"><strong>Is data encrypted in transit?</strong>Yes. All data is transmitted over TLS 1.2+ encrypted connections.</div>
-          <span class="pill pill-green"><span class="pill-dot"></span>Encrypted in Transit</span>
+          <div class="safety-field"><strong>Can users request data/account deletion?</strong>Yes. We provide clear paths for both account and specific data deletion requests.</div>
+          <span class="pill pill-green"><span class="pill-dot"></span>Yes · Deletion Available</span>
         </div>
         <div class="safety-row">
           <div class="safety-field"><strong>Is data encrypted at rest?</strong>Yes. Supabase encrypts all stored data using AES-256.</div>
@@ -1551,6 +1551,54 @@
       </div>
     </div>
 
+    <!-- CARD: ACCOUNT CREATION & DELETION -->
+    <div class="safety-card">
+      <div class="safety-card-head">
+        <div class="safety-card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+        </div>
+        <div>
+          <div class="safety-card-title">Account Creation &amp; Deletion</div>
+          <div class="safety-card-sub">Google Play Data Safety Disclosure</div>
+        </div>
+      </div>
+      <div class="safety-card-body">
+        <h3 class="doc-h3" style="margin-top:0;">Account Creation Methods</h3>
+        <p class="doc-p">Arguuu supports the following methods for account creation and authentication:</p>
+        <ul class="doc-list">
+          <li><strong>Username and Password:</strong> Secure authentication using an email/username and a unique password.</li>
+          <li><strong>Username and Other Authentication:</strong> Alternative authentication methods including one-time passwords (OTP).</li>
+          <li><strong>Username, Password, and Other Authentication:</strong> Multi-factor authentication processes.</li>
+          <li><strong>OAuth / Third-Party Login:</strong> Authentication via Google, Apple, or other social providers.</li>
+        </ul>
+
+        <div class="info-box" id="deletion-request">
+          <div class="ib-title">Official Deletion Request Information</div>
+          <p class="doc-p"><strong>Developer:</strong> Blue Particle Studios | <strong>App:</strong> Arguuu</p>
+          <p class="doc-p" style="font-weight:600; margin-top:12px;">How to request account and data deletion:</p>
+          <ol class="doc-olist">
+            <li><strong>In-App Deletion:</strong> Open the Arguuu app -> Navigate to <strong>Settings</strong> -> Select <strong>Account</strong> -> Tap <strong>Delete Account</strong>. This will trigger the immediate permanent deletion of your profile and personal data.</li>
+            <li><strong>Web/Email Request:</strong> If you cannot access the app, you may request deletion by emailing <a href="mailto:privacy@arguuu.app">privacy@arguuu.app</a> from your registered email address with the subject "Data Deletion Request".</li>
+          </ol>
+          
+          <p class="doc-p" style="font-weight:600; margin-top:12px;">Data Handling &amp; Retention:</p>
+          <ul class="doc-list">
+            <li><strong>Data Deleted:</strong> Your account profile, email address, hashed password, WIT score, participation history, and private preferences are permanently purged from our active databases within 30 days.</li>
+            <li><strong>Data Kept:</strong> To maintain the integrity of previous debates, your chat messages (debate bubbles) are retained but **anonymized**. They will no longer be linked to your username or identity, but will remain visible in the debate room archive as "Deleted User" to ensure the debate context is preserved for other participants.</li>
+          </ul>
+        </div>
+
+        <div class="safety-row">
+          <div class="safety-field"><strong>Delete Account URL</strong>Official link for deletion instructions.</div>
+          <a href="https://arguuu-hub.vercel.app/arguuu-legal.html#deletion-request" class="pill pill-blue" style="text-decoration:none;">View URL</a>
+        </div>
+        <div class="safety-row">
+          <div class="safety-field"><strong>Delete Data URL</strong>Official link for requesting data deletion without deleting account.</div>
+          <a href="https://arguuu-hub.vercel.app/arguuu-legal.html#deletion-request" class="pill pill-blue" style="text-decoration:none;">View URL</a>
+        </div>
+      </div>
+    </div>
+
     <!-- CARD: USER CONTROLS -->
     <div class="safety-card">
       <div class="safety-card-head">
@@ -1572,7 +1620,7 @@
           <span class="pill pill-green"><span class="pill-dot"></span>In-App</span>
         </div>
         <div class="safety-row">
-          <div class="safety-field"><strong>Delete Account</strong>Permanently delete your account via Settings → Account → Delete Account. Data purged within 30 days.</div>
+          <div class="safety-field"><strong>Delete Account</strong>Permanently delete your account via Settings → Account → Delete Account. See "Official Deletion Request Information" above for details.</div>
           <span class="pill pill-green"><span class="pill-dot"></span>In-App</span>
         </div>
         <div class="safety-row">
