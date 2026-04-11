@@ -11,17 +11,17 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://arguuu.com/arguuu-gallery.html">
+<meta property="og:url" content="https://arguuu-hub.vercel.app/arguuu-gallery.html">
 <meta property="og:title" content="Arguuu — App Gallery & Design Showcase">
 <meta property="og:description" content="A deep dive into the 59 screens of Arguuu, the arena for structured arguments.">
-<meta property="og:image" content="https://arguuu.com/arguuu_logo.png">
+<meta property="og:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://arguuu.com/arguuu-gallery.html">
+<meta property="twitter:url" content="https://arguuu-hub.vercel.app/arguuu-gallery.html">
 <meta property="twitter:title" content="Arguuu — App Gallery & Design Showcase">
 <meta property="twitter:description" content="A deep dive into the 59 screens of Arguuu, the arena for structured arguments.">
-<meta property="twitter:image" content="https://arguuu.com/arguuu_logo.png">
+<meta property="twitter:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="arguuu_logo.png">
@@ -1157,37 +1157,38 @@ nav {
 }
 
 /* ── FOOTER ── */
-footer {
-  background: rgba(255,255,255,0.03);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 3rem 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: var(--cream);
-}
-.footer-logo .f { color: var(--for-blue-mid); }
-.footer-logo .a { color: var(--terracotta); }
-.footer-right {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-.footer-link {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(250,246,240,0.3);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-link:hover { color: var(--cream); }
+  footer {
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .footer-logo .f { color: var(--for-blue-mid); }
+  .footer-logo .a { color: var(--terracotta); }
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .footer-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sand);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-link:hover { color: var(--cream); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
@@ -1806,14 +1807,15 @@ footer {
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Arg<span class="f">u</span><span class="a">u</span>u</div>
+  <a href="index.html" class="footer-logo">Arg<span class="f">u</span><span class="a">u</span>u</a>
   <div class="footer-right">
-    <a href="index.html" class="footer-link">← Back to Landing</a>
+    <a href="arguuu-about.html" class="footer-link">About</a>
+    <a href="arguuu-help.html" class="footer-link">Help</a>
+    <a href="arguuu-guidelines.html" class="footer-link">Guidelines</a>
+    <a href="arguuu-licenses.html" class="footer-link">Licenses</a>
     <a href="arguuu-legal.html" class="footer-link">Legal</a>
     <a href="https://wali-blog.vercel.app/" target="_blank" class="footer-link">Portfolio ↗</a>
-    <a href="assets/apk/Arguuu_v2.6.1.apk" download class="footer-link" onclick="showInstallInstructions()">Download APK</a>
   </div>
 </footer>
 

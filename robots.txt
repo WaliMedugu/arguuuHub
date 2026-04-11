@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arguuu.com/sitemap.xml
+Sitemap: https://arguuu-hub.vercel.app/sitemap.xml

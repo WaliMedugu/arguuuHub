@@ -11,17 +11,17 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://arguuu.com/">
+<meta property="og:url" content="https://arguuu-hub.vercel.app/">
 <meta property="og:title" content="Arguuu — Where Arguments Live">
 <meta property="og:description" content="Engage in structured debates, vote on perspectives, and explore the clash of ideas in a premium, minimalist environment.">
-<meta property="og:image" content="https://arguuu.com/arguuu_logo.png">
+<meta property="og:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://arguuu.com/">
+<meta property="twitter:url" content="https://arguuu-hub.vercel.app/">
 <meta property="twitter:title" content="Arguuu — Where Arguments Live">
 <meta property="twitter:description" content="Engage in structured debates, vote on perspectives, and explore the clash of ideas in a premium, minimalist environment.">
-<meta property="twitter:image" content="https://arguuu.com/arguuu_logo.png">
+<meta property="twitter:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="arguuu_logo.png">
@@ -919,20 +919,31 @@
   .footer-logo span.against { color: var(--terracotta); }
   .footer-meta {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     letter-spacing: 0.1em;
-    color: var(--text-light);
+    color: var(--sand);
     text-align: right;
   }
   .footer-meta p { margin-bottom: 0.2rem; }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+    justify-content: flex-end;
+  }
+  .footer-links a {
+    color: var(--cream);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--terracotta); }
 
   .visit-counter {
     margin-top: 1.5rem;
     font-family: 'DM Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.62rem;
     letter-spacing: 0.08em;
-    color: var(--text-light);
-    opacity: 0.8;
+    color: rgba(232,221,208,0.7);
   }
   .visit-counter span {
     color: var(--terracotta);
@@ -1427,13 +1438,20 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
+  <a href="index.html" class="footer-logo" style="text-decoration: none;">
     Arg<span class="for">u</span><span class="against">u</span>u
-  </div>
+  </a>
   <div class="footer-meta">
+    <div class="footer-links">
+      <a href="arguuu-about.html">About</a>
+      <a href="arguuu-help.html">Help Center</a>
+      <a href="arguuu-guidelines.html">Guidelines</a>
+      <a href="arguuu-licenses.html">Licenses</a>
+      <a href="arguuu-legal.html">Legal</a>
+      <a href="report-bug.html">Report Bug</a>
+      <a href="https://wali-blog.vercel.app/" target="_blank">Portfolio ↗</a>
+    </div>
     <p>© 2026 Blue Particle Studios</p>
-    <a href="arguuu-legal.html" style="color: var(--text-light); text-decoration: none; font-size: 0.62rem; margin-right: 1rem;">Legal</a>
-    <a href="https://wali-blog.vercel.app/" target="_blank" style="color: var(--text-light); text-decoration: none; font-size: 0.62rem;">Portfolio ↗</a>
     <p>Built by Wali Medugu</p>
     <div class="visit-counter">
       <span id="visit-count">...</span> times this site was visited.

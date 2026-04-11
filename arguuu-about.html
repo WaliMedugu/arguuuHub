@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arguuu — About the Arena | Our Mission & Vision</title>
+  <meta name="description" content="Learn about Arguuu, the structured debate platform designed to move beyond echo chambers and foster real, evidence-based arguments.">
+  <meta name="keywords" content="Arguuu, about, mission, debate platform, structured arguments, Blue Particle Studios">
+  <meta name="author" content="Arguuu">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arguuu-hub.vercel.app/arguuu-about.html">
+  <meta property="og:title" content="Arguuu — About the Arena">
+  <meta property="og:description" content="Discover the philosophy behind Arguuu. Structured debate, intellectual honesty, and the pursuit of better arguments.">
+  <meta property="og:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://arguuu-hub.vercel.app/arguuu-about.html">
+  <meta property="twitter:title" content="Arguuu — About the Arena">
+  <meta property="twitter:description" content="Discover the philosophy behind Arguuu. Structured debate, intellectual honesty, and the pursuit of better arguments.">
+  <meta property="twitter:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="arguuu_logo.png">
+  <link rel="apple-touch-icon" href="arguuu_logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #faf6f0;
+      --warm-white: #fdf9f4;
+      --sand: #e8ddd0;
+      --tan: #c9b99e;
+      --terracotta: #c4724a;
+      --rust: #a85535;
+      --brown: #5c3d2e;
+      --dark: #2a1f17;
+      --text: #3d2b1f;
+      --text-light: #7a5c4a;
+      --ink: #1a110a;
+      --for-blue: #1a5fa8;
+      --against-rust: #a85535;
+      --radius: 14px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav.site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand);
+    }
+  
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo span.for { color: var(--for-blue); }
+    .nav-logo span.against { color: var(--against-rust); }
+  
+    .nav-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--tan);
+      margin-left: 1.25rem;
+      padding-left: 1.25rem;
+      border-left: 1px solid var(--sand);
+      white-space: nowrap;
+    }
+  
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO BANNER ── */
+    .page-hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--brown) 100%);
+      padding: 140px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-hero h1 em { color: var(--terracotta); font-style: italic; }
+
+    .page-hero p {
+      font-family: 'Lora', serif;
+      color: var(--tan);
+      font-size: 18px;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── CONTENT ── */
+    .doc-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--terracotta);
+      margin-bottom: 12px;
+    }
+
+    h2.doc-h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .doc-intro {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 60px;
+      border-left: 3px solid var(--terracotta);
+      padding-left: 24px;
+      font-style: italic;
+    }
+
+    p.doc-p { margin-bottom: 24px; font-size: 17px; line-height: 1.8; }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin: 60px 0;
+    }
+
+    .mission-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+
+    .mission-item p {
+      font-size: 15px;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .doc-divider {
+      border: none;
+      border-top: 1px solid var(--sand);
+      margin: 60px 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .footer-logo span.for { color: var(--for-blue); }
+    .footer-logo span.against { color: var(--terracotta); }
+    
+    .footer-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--sand);
+      text-align: right;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: flex-end;
+    }
+    .footer-links a {
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--terracotta); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav.site-nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 120px 20px 60px; }
+      .doc-container { padding: 40px 20px 80px; }
+      .mission-grid { grid-template-columns: 1fr; gap: 30px; }
+      footer { flex-direction: column; gap: 2rem; text-align: center; padding: 2rem; }
+      .footer-meta { text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <span class="nav-label">About the Arena</span>
+  
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#how">How it Works</a></li>
+    <li><a href="arguuu-gallery.html">Gallery</a></li>
+    <li><a href="arguuu-help.html">Help</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="eyebrow">Our Philosophy</div>
+  <h1>The pursuit of <em>better arguments.</em></h1>
+  <p>We believe that disagreement is not a bug of society, but a feature—if handled with structure, dignity, and evidence.</p>
+</div>
+
+<div class="doc-container">
+  <p class="doc-intro">Arguuu was born from a simple observation: the internet has made it easier to scream at people we disagree with, but harder to actually talk to them. We built the arena to fix that.</p>
+
+  <div class="section-label">Our Mission</div>
+  <h2 class="doc-h2">Moving beyond the echo chamber.</h2>
+  <p class="doc-p">Most social platforms use algorithms that thrive on conflict without resolution. They reward the loudest voice and the most extreme take. Arguuu is designed to reward the most logical, evidence-grounded, and persuasive argument.</p>
+  
+  <div class="mission-grid">
+    <div class="mission-item">
+      <h3>Structured Debate</h3>
+      <p>By enforcing a clear format—opening, rebuttal, closing—we ensure that every conversation has a beginning, a middle, and a path toward understanding.</p>
+    </div>
+    <div class="mission-item">
+      <h3>Intellectual Honesty</h3>
+      <p>We encourage users to back their claims with verifiable evidence. Our systems are built to discourage misinformation and reward factual accuracy.</p>
+    </div>
+    <div class="mission-item">
+      <h3>Civility by Design</h3>
+      <p>The "Arena" isn't about fighting; it's about competing in the marketplace of ideas. We foster an environment where you can respect the debater while challenging the point.</p>
+    </div>
+    <div class="mission-item">
+      <h3>Skill-Based Growth</h3>
+      <p>Your "WIT Score" reflects your ability to argue effectively, not your popularity. We aim to identify the sharpest minds across every discipline.</p>
+    </div>
+  </div>
+
+  <hr class="doc-divider" />
+
+  <div class="section-label">The Team</div>
+  <h2 class="doc-h2">Built by <em>Blue Particle Studios.</em></h2>
+  <p class="doc-p">Arguuu is the flagship project of Blue Particle Studios, a lab dedicated to building software that enhances human interaction rather than exploiting it. Founded by Wali Medugu, the studio focuses on structured communication, privacy-first design, and premium user experiences.</p>
+  <p class="doc-p">We are a small, independent team based in Abuja, Nigeria, with a global vision for how people discuss the things that matter most.</p>
+
+  <hr class="doc-divider" />
+
+  <div class="section-label">Join Us</div>
+  <h2 class="doc-h2">Help us build the arena.</h2>
+  <p class="doc-p">We are just getting started. If you believe that the world needs a better way to disagree, we invite you to join our journey. Sign up for early access, download our beta, and let's make arguments worth having again.</p>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <div class="footer-meta">
+    <div class="footer-links">
+      <a href="arguuu-about.html">About</a>
+      <a href="arguuu-help.html">Help Center</a>
+      <a href="arguuu-guidelines.html">Guidelines</a>
+      <a href="arguuu-licenses.html">Licenses</a>
+      <a href="arguuu-legal.html">Legal</a>
+      <a href="arguuu-gallery.html">Gallery</a>
+    </div>
+    <p>© 2026 Blue Particle Studios</p>
+    <p>Built by Wali Medugu</p>
+  </div>
+</footer>
+
+</body>
+</html>
