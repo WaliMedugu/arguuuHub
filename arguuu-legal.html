@@ -712,10 +712,10 @@
   </div>
 
   <ul class="nav-links">
-    <li><a href="javascript:void(0)" class="tab-btn active" onclick="switchTab('privacy', this)">Privacy Policy</a></li>
-    <li><a href="javascript:void(0)" class="tab-btn" onclick="switchTab('terms', this)">Terms &amp; Conditions</a></li>
-    <li><a href="javascript:void(0)" class="tab-btn" onclick="switchTab('faq', this)">FAQ</a></li>
-    <li><a href="javascript:void(0)" class="tab-btn" onclick="switchTab('safety', this)">Data Safety</a></li>
+    <li><a href="#privacypolicy" class="tab-btn active" onclick="switchTab('privacypolicy', this)">Privacy Policy</a></li>
+    <li><a href="#termsandconditions" class="tab-btn" onclick="switchTab('termsandconditions', this)">Terms &amp; Conditions</a></li>
+    <li><a href="#faq" class="tab-btn" onclick="switchTab('faq', this)">FAQ</a></li>
+    <li><a href="#datasafety" class="tab-btn" onclick="switchTab('datasafety', this)">Data Safety</a></li>
   </ul>
 
   <div class="nav-actions-placeholder" style="width: 20px; visibility: hidden;"></div>
@@ -725,16 +725,17 @@
 <div class="mobile-menu" id="mobileMenu">
   <div class="section-label">Legal Menu</div>
   <a href="index.html" onclick="toggleMenu()">Home</a>
-  <a href="javascript:void(0)" class="tab-btn active" onclick="switchTab('privacy', this); toggleMenu();">Privacy Policy</a>
-  <a href="javascript:void(0)" class="tab-btn" onclick="switchTab('terms', this); toggleMenu();">Terms &amp; Conditions</a>
-  <a href="javascript:void(0)" class="tab-btn" onclick="switchTab('faq', this); toggleMenu();">FAQ</a>
-  <a href="javascript:void(0)" class="tab-btn" onclick="switchTab('safety', this); toggleMenu();">Data Safety</a>
+  <a href="#privacypolicy" class="tab-btn active" onclick="switchTab('privacypolicy', this); toggleMenu();">Privacy Policy</a>
+  <a href="#termsandconditions" class="tab-btn" onclick="switchTab('termsandconditions', this); toggleMenu();">Terms &amp; Conditions</a>
+  <a href="#faq" class="tab-btn" onclick="switchTab('faq', this); toggleMenu();">FAQ</a>
+  <a href="#datasafety" class="tab-btn" onclick="switchTab('datasafety', this); toggleMenu();">Data Safety</a>
+  <a href="#childsafety" class="tab-btn" onclick="switchTab('childsafety', this); toggleMenu();">Child Safety</a>
 </div>
 
 <!-- ══════════════════════════════════════════════════ -->
 <!--  PRIVACY POLICY                                    -->
 <!-- ══════════════════════════════════════════════════ -->
-<div id="panel-privacy" class="content-panel active">
+<div id="privacypolicy" class="content-panel active">
   <div class="page-hero">
     <div class="eyebrow">Legal Document</div>
     <h1>Privacy <em>Policy</em></h1>
@@ -923,7 +924,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!--  TERMS AND CONDITIONS                              -->
 <!-- ══════════════════════════════════════════════════ -->
-<div id="panel-terms" class="content-panel">
+<div id="termsandconditions" class="content-panel">
   <div class="page-hero">
     <div class="eyebrow">Legal Document</div>
     <h1>Terms &amp; <em>Conditions</em></h1>
@@ -1093,7 +1094,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!--  FAQ                                               -->
 <!-- ══════════════════════════════════════════════════ -->
-<div id="panel-faq" class="content-panel">
+<div id="faq" class="content-panel">
   <div class="page-hero">
     <div class="eyebrow">Help Center</div>
     <h1>Frequently Asked <em>Questions</em></h1>
@@ -1284,7 +1285,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!--  DATA SAFETY FORM                                  -->
 <!-- ══════════════════════════════════════════════════ -->
-<div id="panel-safety" class="content-panel">
+<div id="datasafety" class="content-panel">
   <div class="page-hero">
     <div class="eyebrow">Transparency Report</div>
     <h1>Data <em>Safety</em> Form</h1>
@@ -1653,7 +1654,7 @@
 <!-- ══════════════════════════════════════════════════ -->
 <!--  CHILD SAFETY STANDARDS                            -->
 <!-- ══════════════════════════════════════════════════ -->
-<div id="panel-child-safety" class="content-panel">
+<div id="childsafety" class="content-panel">
   <div class="page-hero">
     <div class="eyebrow">Public Declaration</div>
     <h1>Child Safety <em>Standards</em></h1>
@@ -1727,11 +1728,11 @@
     <a href="https://wali-blog.vercel.app/" target="_blank">Portfolio</a>
   </div>
   <div class="lf-links">
-    <button onclick="switchTab('privacy', document.querySelectorAll('.tab-btn')[0])">Privacy Policy</button>
-    <button onclick="switchTab('terms', document.querySelectorAll('.tab-btn')[1])">Terms &amp; Conditions</button>
+    <button onclick="switchTab('privacypolicy', document.querySelectorAll('.tab-btn')[0])">Privacy Policy</button>
+    <button onclick="switchTab('termsandconditions', document.querySelectorAll('.tab-btn')[1])">Terms &amp; Conditions</button>
     <button onclick="switchTab('faq', document.querySelectorAll('.tab-btn')[2])">FAQ</button>
-    <button onclick="switchTab('safety', document.querySelectorAll('.tab-btn')[3])">Data Safety</button>
-    <button onclick="switchTab('child-safety', document.querySelectorAll('.tab-btn')[4] || this)">Child Safety</button>
+    <button onclick="switchTab('datasafety', document.querySelectorAll('.tab-btn')[3])">Data Safety</button>
+    <button onclick="switchTab('childsafety', document.querySelectorAll('.tab-btn')[4] || this)">Child Safety</button>
   </div>
   <div class="lf-copy">© 2026 Blue Particle Studios. All rights reserved. Arguuu and the Arguuu logo are trademarks of Blue Particle Studios.</div>
 </footer>
@@ -1741,20 +1742,39 @@
     // Deactivate all panels and tabs
     document.querySelectorAll('.content-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    // Activate the selected
-    document.getElementById('panel-' + tabId).classList.add('active');
     
-    // If we have a toggleMenu active, handle switching there too
-    // Note: We might have multiple tab-btn elements with the same ID now (mobile vs desktop)
-    // So we'll activate all elements that match the text or just activate the btn passed
-    if (btn) btn.classList.add('active');
+    // Activate the selected panel
+    const targetPanel = document.getElementById(tabId);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+    } else {
+      // Fallback for old IDs if necessary, though we updated everything
+      const fallbackId = {
+        'privacy': 'privacypolicy',
+        'terms': 'termsandconditions',
+        'safety': 'datasafety',
+        'child-safety': 'childsafety'
+      }[tabId];
+      if (fallbackId) document.getElementById(fallbackId).classList.add('active');
+    }
     
-    // Find matching buttons in other menus (e.g. if we click in mobile, also update desktop)
-    const label = btn ? btn.textContent : '';
-    if (label) {
+    // Find matching buttons in all menus (mobile vs desktop)
+    const normalizedBtn = btn || [...document.querySelectorAll('.tab-btn')].find(b => 
+      b.getAttribute('onclick')?.includes(`'${tabId}'`)
+    );
+
+    if (normalizedBtn) {
+      const label = normalizedBtn.textContent;
       document.querySelectorAll('.tab-btn').forEach(b => {
         if (b.textContent === label) b.classList.add('active');
       });
+    }
+
+    // Update URL hash
+    if (history.pushState) {
+      history.pushState(null, null, '#' + tabId);
+    } else {
+      location.hash = '#' + tabId;
     }
 
     // Scroll to top
@@ -1794,12 +1814,22 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // Handle fragments on load (e.g. #child-safety)
+  // Handle fragments on load (e.g. #childsafety)
   window.addEventListener('load', () => {
     const hash = window.location.hash.replace('#', '');
     if (hash) {
-      if (['privacy', 'terms', 'faq', 'safety', 'child-safety'].includes(hash)) {
+      const validHashes = ['privacypolicy', 'termsandconditions', 'faq', 'datasafety', 'childsafety'];
+      const oldHashes = {
+        'privacy': 'privacypolicy',
+        'terms': 'termsandconditions',
+        'safety': 'datasafety',
+        'child-safety': 'childsafety'
+      };
+      
+      if (validHashes.includes(hash)) {
         switchTab(hash);
+      } else if (oldHashes[hash]) {
+        switchTab(oldHashes[hash]);
       }
     }
   });
