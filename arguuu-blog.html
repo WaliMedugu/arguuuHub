@@ -3,7 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arguuu — Our Best Arguments</title>
+  <title>Arguuu Archive — High-Fidelity Archived Debates</title>
+  <meta name="description" content="Explore the Arguuu Archive: A collection of the most intense, high-fidelity structured debates. From cultural clashes to political philosophy, see how the world's most difficult questions are settled.">
+  <meta name="keywords" content="debate archive, high-fidelity debates, Arguuu blog, archived clashes, debate transcripts, intellectual discourse, political debates, cultural arguments">
+  <link rel="canonical" href="https://arguuu-hub.vercel.app/arguuu-blog.html">
+  <meta name="author" content="Blue Particle Studios">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arguuu-hub.vercel.app/arguuu-blog.html">
+  <meta property="og:title" content="Arguuu Archive — High-Fidelity Archived Debates">
+  <meta property="og:description" content="Explore the Arguuu Archive: A collection of the most intense, high-fidelity structured debates.">
+  <meta property="og:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Arguuu Archive — High-Fidelity Archived Debates">
+  <meta property="twitter:description" content="Explore the Arguuu Archive: A collection of the most intense, high-fidelity structured debates.">
+  <meta property="twitter:image" content="https://arguuu-hub.vercel.app/arguuu_logo.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Arguuu Archived Debates",
+    "description": "A collection of high-fidelity structured debates from the Arguuu platform.",
+    "url": "https://arguuu-hub.vercel.app/arguuu-blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Arguuu",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://arguuu-hub.vercel.app/arguuu_logo.png"
+      }
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="arguuu_logo.png">
   
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -412,25 +449,29 @@
     }
 
     filtered.forEach(m => {
-      const card = document.createElement('div');
-      card.className = 'motion-card';
-      
-      // Link specific debates
+      let link = '#';
       if (m.title.includes('Misandry does not exist')) {
-        card.setAttribute('onclick', "window.location.href='arguuu-debate-misandry.html'");
+        link = 'arguuu-debate-misandry.html';
       } else if (m.title.includes('FNAF or Poppy Playtime')) {
-        card.setAttribute('onclick', "window.location.href='arguuu-debate-fnaf.html'");
+        link = 'arguuu-debate-fnaf.html';
       } else if (m.title.includes("Free will doesn't exist")) {
-        card.setAttribute('onclick', "window.location.href='arguuu-debate-freewill.html'");
+        link = 'arguuu-debate-freewill.html';
       } else if (m.title.includes('Should there be limits on free speech?')) {
-        card.setAttribute('onclick', "window.location.href='arguuu-debate-freespeech.html'");
+        link = 'arguuu-debate-freespeech.html';
       } else if (m.title.includes('Tinubu is a relatively good president')) {
-        card.setAttribute('onclick', "window.location.href='arguuu-debate-politics.html'");
+        link = 'arguuu-debate-politics.html';
       } else if (m.title.includes('Abortion')) {
-        card.setAttribute('onclick', "window.location.href='arguuu-debate-abortion.html'");
+        link = 'arguuu-debate-abortion.html';
       } else if (m.title.includes('Korra is a worse Avatar than Roku')) {
-        card.setAttribute('onclick', "window.location.href='arguuu-debate-avatar.html'");
+        link = 'arguuu-debate-avatar.html';
       }
+      
+      const card = document.createElement('a');
+      card.className = 'motion-card';
+      card.href = link;
+      card.style.textDecoration = 'none';
+      card.style.color = 'inherit';
+      card.style.display = 'block';
 
       card.innerHTML = `
         <div class="motion-title">${m.title}</div>
