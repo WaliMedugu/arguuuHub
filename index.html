@@ -1177,130 +1177,7 @@
     .modal-card { max-width: 100%; border-radius: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; }
     .modal-overlay { padding: 0; }
   }
-    /* ── DISCOVER ARENA ── */
-    .discover-section {
-      background-color: var(--warm-white);
-      padding: 80px 40px;
-    }
-    .discover-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .discover-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: var(--rust);
-      font-style: italic;
-    }
-    .btn-room {
-      background: transparent;
-      border: 1px solid var(--terracotta);
-      color: var(--terracotta);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-    .search-wrap {
-      position: relative;
-      margin-bottom: 25px;
-    }
-    .search-wrap input {
-      width: 100%;
-      padding: 18px 24px;
-      border-radius: 12px;
-      border: 1px solid var(--sand);
-      background-color: #eee4d8;
-      font-family: 'Lora', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-    }
-    .search-wrap input::placeholder {
-      color: #9d8d7b;
-    }
-    .filter-scroll {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding-bottom: 15px;
-      margin-bottom: 15px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .filter-scroll::-webkit-scrollbar { display: none; }
-    .filter-pill {
-      white-space: nowrap;
-      padding: 10px 24px;
-      border-radius: 10px;
-      border: 1px solid var(--tan);
-      font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--text-light);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .filter-pill.active {
-      background-color: #eee4d8;
-      color: var(--rust);
-      border-color: var(--rust);
-      font-weight: bold;
-    }
-    .arena-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-top: 20px;
-    }
-    .arena-card {
-      background: #fffefc;
-      border: 1px solid var(--sand);
-      border-radius: 24px;
-      padding: 30px;
-      transition: transform 0.2s;
-    }
-    .arena-card:hover {
-      transform: translateY(-2px);
-    }
-    .arena-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
-    .card-footer {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-    .side-badge {
-      padding: 6px 14px;
-      border-radius: 10px;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .side-badge.for { background-color: #e6f0fa; color: #1a5fa8; }
-    .side-badge.against { background-color: #fcece8; color: #a85535; }
-    .live-badge {
-      margin-left: auto;
-      background-color: #f4f4f4;
-      color: #7a7a7a;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: bold;
-    }
-  </style>
+</style>
 </head>
 <body>
 
@@ -1315,6 +1192,7 @@
   </div>
 
   <ul class="nav-links">
+    <li><a href="arguuu-blog.html">Arena Feed</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#features">Features</a></li>
     <li><a href="#preview">Preview</a></li>
@@ -1333,6 +1211,7 @@
   <div class="section-label" style="position: absolute; top: 2rem; left: 2rem;">Menu</div>
   
   <!-- Primary Links -->
+  <a href="arguuu-blog.html" onclick="toggleMenu()" style="color: var(--terracotta);">Arena Feed</a>
   <a href="#how" onclick="toggleMenu()">How it works</a>
   <a href="#features" onclick="toggleMenu()">Features</a>
   <a href="#preview" onclick="toggleMenu()">Preview</a>
@@ -1449,45 +1328,7 @@
   <p class="pull-attrib">— The Arguuu Manifesto</p>
 </div>
 
-<!-- DISCOVER ARENA -->
-<section id="discover" class="discover-section">
-  <div class="container" style="max-width: 600px;">
-    <div class="discover-header">
-      <div class="discover-title">Discover</div>
-      <button class="btn-room">+ ROOM</button>
-    </div>
-
-    <div class="search-wrap">
-      <input type="text" placeholder="Search rooms or users...">
-    </div>
-
-    <div class="filter-scroll">
-      <div class="filter-pill active" data-cat="all">All</div>
-      <div class="filter-pill" data-cat="trending">Trending</div>
-      <div class="filter-pill" data-cat="myrooms">My rooms</div>
-      <div class="filter-pill" data-cat="newest">Newest</div>
-    </div>
-
-    <div class="filter-scroll" style="margin-top: -5px;">
-      <div class="filter-pill" data-cat="politics">Politics</div>
-      <div class="filter-pill" data-cat="movies">Movies & TV</div>
-      <div class="filter-pill" data-cat="sports">Sports</div>
-      <div class="filter-pill" data-cat="tech">Tech</div>
-      <div class="filter-pill" data-cat="philosophy">Philosophy</div>
-      <div class="filter-pill" data-cat="relationships">Relationships</div>
-      <div class="filter-pill" data-cat="health">Health</div>
-      <div class="filter-pill" data-cat="gaming">Gaming</div>
-      <div class="filter-pill" data-cat="science">Science</div>
-      <div class="filter-pill" data-cat="law">Law</div>
-      <div class="filter-pill" data-cat="others">Others</div>
-      <div class="filter-pill" data-cat="adult">Adult</div>
-    </div>
-
-    <div class="arena-grid" id="arenaGrid">
-      <!-- Cards will be injected by JS -->
-    </div>
-  </div>
-</section>
+<!-- FEATURES -->
 <section id="features">
   <div class="container">
     <div class="section-label">Features</div>
@@ -1616,6 +1457,7 @@
       <a href="arguuu-guidelines.html">Guidelines</a>
       <a href="arguuu-licenses.html">Licenses</a>
       <a href="arguuu-legal.html">Legal</a>
+      <a href="arguuu-blog.html">Arena Feed</a>
       <a href="report-bug.html">Report Bug</a>
       <a href="https://wali-blog.vercel.app/" target="_blank">Portfolio ↗</a>
     </div>
@@ -1671,61 +1513,6 @@
       toggleMenu();
     }
   });
-
-  // --- DISCOVER ARENA LOGIC ---
-  const topics = [
-    { title: "Misandry does NOT exist", cat: "philosophy", for: 8, against: 2, live: true },
-    { title: "fnaf or poppy playtime", cat: "gaming", for: 0, against: 0 },
-    { title: "free will doesnt exist", cat: "philosophy", for: 1, against: 0 },
-    { title: "should there be limits on free speech", cat: "politics", for: 4, against: 12 },
-    { title: "controlled suicide aint half bad", cat: "adult", for: 2, against: 1 },
-    { title: "tinubu is a relatively goof president", cat: "politics", for: 15, against: 42 },
-    { title: "abortion", cat: "health", for: 22, against: 18 },
-    { title: "korra is a worse avatar than roku", cat: "movies", for: 7, against: 3 },
-    { title: "do nice guys actually finish last", cat: "relationships", for: 30, against: 5 },
-    { title: "bts or skz", cat: "others", for: 102, against: 98 },
-    { title: "does nigeria stand a chance at fighting corruption", cat: "politics", for: 5, against: 88 },
-    { title: "nigeria is too hot for overly strict dress codes", cat: "others", for: 40, against: 2 },
-    { title: "\"not all men\" is bring ing feminism bakc", cat: "philosophy", for: 3, against: 21 },
-    { title: "we need the government", cat: "politics", for: 55, against: 4 },
-    { title: "misogyny will always be worse than misandry", cat: "philosophy", for: 12, against: 0 },
-    { title: "social media is a waste of time", cat: "tech", for: 18, against: 18 },
-    { title: "donald trump or bola tinubu. whos the worse president", cat: "politics", for: 11, against: 11 },
-    { title: "irish potatoes or sweet potatores", cat: "health", for: 9, against: 14 },
-    { title: "school is actually overatted", cat: "others", for: 25, against: 6 }
-  ];
-
-  const arenaGrid = document.getElementById('arenaGrid');
-  const filters = document.querySelectorAll('.filter-pill');
-
-  function renderTopics(category = 'all') {
-    arenaGrid.innerHTML = '';
-    const filtered = category === 'all' ? topics : topics.filter(t => t.cat === category);
-    
-    filtered.forEach(topic => {
-      const card = document.createElement('div');
-      card.className = 'arena-card';
-      card.innerHTML = `
-        <h3>"${topic.title}"</h3>
-        <div class="card-footer">
-          <div class="side-badge for">FOR ×${topic.for}</div>
-          <div class="side-badge against">AGAINST ×${topic.against}</div>
-          ${topic.live ? '<div class="live-badge">1 live</div>' : ''}
-        </div>
-      `;
-      arenaGrid.appendChild(card);
-    });
-  }
-
-  filters.forEach(pill => {
-    pill.addEventListener('click', () => {
-      filters.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      renderTopics(pill.dataset.cat);
-    });
-  });
-
-  renderTopics();
 
   updateVisitCount();
 </script>
