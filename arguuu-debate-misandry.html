@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arguuu Debate — Misandry Does Not Exist</title>
+  <link rel="icon" type="image/png" href="arguuu_logo.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=Space+Mono:wght@400;700&family=Anton&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg-cream: #faf6f0;
+      --card-bg: #ffffff;
+      --sand: #e8ddd0;
+      --tan: #c9b99e;
+      --terracotta: #c4724a;
+      --rust: #a85535;
+      --ink: #1a110a;
+      --text: #3d2b1f;
+      --text-light: #7a5c4a;
+      --for-blue: #1a5fa8;
+      --for-blue-mid: #3a7fc4;
+      --for-blue-dark: #1a3a5f;
+      --against-rust: #a85535;
+      --against-rust-dark: #5a1a1a;
+      --for-bg: #e0f0ff;
+      --against-bg: #fce8e8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Lora', serif;
+      background-color: var(--bg-cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav.site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand);
+    }
+  
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .nav-logo span.for { color: var(--for-blue); }
+    .nav-logo span.against { color: var(--against-rust); }
+    
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 4rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .footer-logo span.for { color: var(--for-blue-mid); }
+    .footer-logo span.against { color: var(--terracotta); }
+    
+    .footer-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--sand);
+      text-align: right;
+    }
+    .footer-meta p { margin-bottom: 0.2rem; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--terracotta); }
+
+    .visit-counter {
+      margin-top: 1.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(232,221,208,0.7);
+    }
+    .visit-counter span {
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    /* ── ARENA HEADER ── */
+    .arena-header {
+      padding: 120px 1.5rem 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .topic-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .arena-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .participants {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .participant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── PROFILE RENDERER STYLES ── */
+    .profile-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ccc;
+    }
+    .profile-initials {
+      position: relative;
+      z-index: 10;
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .profile-ring {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 50%;
+      z-index: 5;
+    }
+    .pattern-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    .username {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .stance {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .stance.for { background: var(--for-bg); color: var(--for-blue); }
+    .stance.against { background: var(--against-bg); color: var(--against-rust); }
+
+    .vs {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--tan);
+      font-size: 1.2rem;
+    }
+
+    /* ── CHAT ARENA ── */
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .message-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 85%;
+      position: relative;
+    }
+
+    .message-group.left { align-self: flex-start; padding-left: 60px; }
+    .message-group.right { align-self: flex-end; align-items: flex-end; padding-right: 60px; }
+
+    .bubble {
+      padding: 1.1rem 1.5rem;
+      border-radius: 24px;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      font-weight: 600;
+      text-shadow: none !important;
+      box-shadow: none !important;
+    }
+
+    .left .bubble {
+      background: var(--for-bg);
+      color: var(--for-blue-dark);
+      border: none;
+    }
+
+    .right .bubble {
+      background: var(--against-bg);
+      color: var(--against-rust-dark);
+      border: none;
+    }
+
+    .bubble-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .left .bubble-meta { color: var(--for-blue); margin-left: 0.5rem; }
+    .right .bubble-meta { color: var(--against-rust); margin-right: 0.5rem; }
+
+    .turn-avatar {
+      position: absolute;
+      top: 0;
+      width: 44px;
+      height: 44px;
+    }
+
+    .left .turn-avatar { left: 0; }
+    .right .turn-avatar { right: 0; }
+
+    /* ── FOOTER ── */
+    /* Handled by full footer below */
+
+    @media (max-width: 768px) {
+      nav.site-nav { padding: 1rem 1.5rem; }
+      .participants { gap: 1.5rem; }
+      .arena-header h1 { font-size: 1.8rem; }
+      .profile-circle { width: 56px; height: 56px; }
+      .profile-initials { font-size: 1.1rem; }
+      .message-group { max-width: 95%; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
+      .footer-meta { text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="arguuu-blog.html" style="font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; color: var(--tan); text-decoration: none;">← Back to Archive</a>
+    <a href="https://play.google.com/store/apps/details?id=com.arguuu.app" target="_blank" style="font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1.5px solid var(--sand); padding: 0.5rem 1rem; border-radius: 30px;">Get App</a>
+  </div>
+</nav>
+
+<header class="arena-header">
+  <div class="topic-badge">archived debate</div>
+  <h1>"Misandry does not exist"</h1>
+  
+  <div class="participants">
+    <div class="participant">
+      <div id="kemiProfile" class="profile-circle"></div>
+      <span class="username">kemi.no.chill</span>
+      <span class="stance for">FOR</span>
+    </div>
+    <div class="vs">vs</div>
+    <div class="participant">
+      <div id="ryanProfile" class="profile-circle"></div>
+      <span class="username">itsjustlogic_</span>
+      <span class="stance against">AGAINST</span>
+    </div>
+  </div>
+</header>
+
+<main class="chat-container">
+  
+  <!-- KEMI ROUND 1 -->
+  <div class="message-group left">
+    <div id="kemiAvatar1" class="turn-avatar profile-circle"></div>
+    <div class="bubble">misandry is a myth invented by men who are mad they can't act crazy anymore</div>
+    <div class="bubble">institutional power matters. women don't have it</div>
+    <div class="bubble">so no. you cant be oppressed by someone who has no systemic power over you</div>
+    <div class="bubble-meta">kemi.no.chill - FOR - 14:12</div>
+  </div>
+
+  <!-- RYAN ROUND 1 -->
+  <div class="message-group right">
+    <div id="ryanAvatar1" class="turn-avatar profile-circle"></div>
+    <div class="bubble">premise one: misandry is defined as prejudice against men</div>
+    <div class="bubble">premise two: individuals of any gender can hold prejudice</div>
+    <div class="bubble">conclusion: misandry exists. systemic power is a separate metric</div>
+    <div class="bubble-meta">itsjustlogic_ - AGAINST - 14:14</div>
+  </div>
+
+  <!-- KEMI ROUND 2 -->
+  <div class="message-group left">
+    <div id="kemiAvatar2" class="turn-avatar profile-circle"></div>
+    <div class="bubble">NO. prejudice is not the same as an oppressive system</div>
+    <div class="bubble">calling you trash on the internet doesn't stop you from getting a job</div>
+    <div class="bubble-meta">kemi.no.chill - FOR - 14:17</div>
+  </div>
+
+  <!-- RYAN ROUND 2 -->
+  <div class="message-group right">
+    <div id="ryanAvatar2" class="turn-avatar profile-circle"></div>
+    <div class="bubble">this is a classic redefinition fallacy</div>
+    <div class="bubble">you are conflating systemic oppression with individual prejudice</div>
+    <div class="bubble">a woman attacking a man because she hates men is literal misandry</div>
+    <div class="bubble-meta">itsjustlogic_ - AGAINST - 14:21</div>
+  </div>
+
+  <!-- KEMI ROUND 3 -->
+  <div class="message-group left">
+    <div id="kemiAvatar3" class="turn-avatar profile-circle"></div>
+    <div class="bubble">bringing up hypothetical violence doesn't prove your point</div>
+    <div class="bubble">women cross the street when they see you out of survival</div>
+    <div class="bubble">men get their feelings hurt online and call it oppression. please.</div>
+    <div class="bubble-meta">kemi.no.chill - FOR - 14:24</div>
+  </div>
+
+  <!-- RYAN ROUND 3 -->
+  <div class="message-group right">
+    <div id="ryanAvatar3" class="turn-avatar profile-circle"></div>
+    <div class="bubble">your argument relies entirely on emotional appeals</div>
+    <div class="bubble">suicide rates and family court biases are empirical systemic issues</div>
+    <div class="bubble">rejecting data doesn't make your thesis true</div>
+    <div class="bubble-meta">itsjustlogic_ - AGAINST - 14:28</div>
+  </div>
+
+  <!-- KEMI ROUND 4 -->
+  <div class="message-group left">
+    <div id="kemiAvatar4" class="turn-avatar profile-circle"></div>
+    <div class="bubble">who set up the family courts ryan? MEN DID.</div>
+    <div class="bubble">you are suffering under the patriarchy you created</div>
+    <div class="bubble">don't blame women for the system your grandfathers built</div>
+    <div class="bubble-meta">kemi.no.chill - FOR - 14:31</div>
+  </div>
+
+  <!-- RYAN ROUND 4 -->
+  <div class="message-group right">
+    <div id="ryanAvatar4" class="turn-avatar profile-circle"></div>
+    <div class="bubble">origin of the system doesn't negate the current victim of it</div>
+    <div class="bubble">if a man is harmed by anti-male bias today that is misandry</div>
+    <div class="bubble">logic requires consistency. you are applying a double standard</div>
+    <div class="bubble-meta">itsjustlogic_ - AGAINST - 14:35</div>
+  </div>
+
+  <!-- KEMI ROUND 5 -->
+  <div class="message-group left">
+    <div id="kemiAvatar5" class="turn-avatar profile-circle"></div>
+    <div class="bubble">the standard is reality.</div>
+    <div class="bubble">misandry is just men's fear that women will treat them how they treat us</div>
+    <div class="bubble">conversation over.</div>
+    <div class="bubble-meta">kemi.no.chill - FOR - 14:39</div>
+  </div>
+
+  <!-- RYAN ROUND 5 -->
+  <div class="message-group right">
+    <div id="ryanAvatar5" class="turn-avatar profile-circle"></div>
+    <div class="bubble">declaring victory is not the same as winning a debate</div>
+    <div class="bubble">you failed to disprove the existence of anti-male prejudice</div>
+    <div class="bubble">QED.</div>
+    <div class="bubble-meta">itsjustlogic_ - AGAINST - 14:42</div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="index.html" class="footer-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <div class="footer-meta">
+    <div class="footer-links">
+      <a href="arguuu-about.html">About</a>
+      <a href="arguuu-help.html">Help Center</a>
+      <a href="arguuu-guidelines.html">Guidelines</a>
+      <a href="arguuu-licenses.html">Licenses</a>
+      <a href="arguuu-legal.html">Legal</a>
+      <a href="arguuu-blog.html">Archived Debates</a>
+      <a href="report-bug.html">Report Bug</a>
+      <a href="https://wali-blog.vercel.app/" target="_blank">Portfolio ↗</a>
+    </div>
+    <p>© 2026 Blue Particle Studios</p>
+    <p>Built by Wali Medugu</p>
+    <div class="visit-counter">
+      <span id="visit-count">...</span> times this site was visited.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function renderProfile(containerId, config) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    
+    // Base Background
+    container.style.backgroundColor = config.color1;
+    
+    // Pattern
+    const patternOverlay = document.createElement('div');
+    patternOverlay.className = 'pattern-overlay';
+    
+    const c1 = config.color1;
+    const c2 = config.color2;
+    let patternHtml = '';
+
+    if (config.bgStyle === 'grid') {
+      patternHtml = `<svg width="100%" height="100%"><defs><pattern id="grid_${containerId}" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="${c2}" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid_${containerId})"/></svg>`;
+    } else if (config.bgStyle === 'diagonal') {
+      patternHtml = `<svg width="100%" height="100%"><defs><pattern id="diag_${containerId}" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="${c2}" stroke-width="2.5" opacity="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#diag_${containerId})"/></svg>`;
+    } else if (config.bgStyle === 'split_v') {
+      patternHtml = `<div style="width:100%; height:100%; display:flex;"><div style="flex:1; background:${c1}"></div><div style="flex:1; background:${c2}"></div></div>`;
+    } else if (config.bgStyle === 'mesh') {
+      container.style.background = `radial-gradient(at 0% 0%, ${c1} 0%, transparent 50%), radial-gradient(at 100% 0%, ${c2} 0%, transparent 50%), radial-gradient(at 100% 100%, ${c1} 0%, transparent 50%), radial-gradient(at 0% 100%, ${c2} 0%, transparent 50%)`;
+      container.style.backgroundColor = c1;
+    }
+
+    patternOverlay.innerHTML = patternHtml;
+    container.appendChild(patternOverlay);
+
+    // Ring
+    const ring = document.createElement('div');
+    ring.className = 'profile-ring';
+    if (config.ring === 'double') {
+      ring.style.border = `2px solid ${config.ringColor}`;
+      ring.style.outline = `2px solid ${config.ringColor}`;
+      ring.style.outlineOffset = `2px`;
+    } else if (config.ring === 'solid') {
+      ring.style.border = `4px solid ${config.ringColor}`;
+    }
+    container.appendChild(ring);
+
+    // Initials
+    const initials = document.createElement('div');
+    initials.className = 'profile-initials';
+    initials.innerText = config.initials;
+    const fontMap = {
+      'monument': "'Orbitron', sans-serif",
+      'anton': "'Anton', sans-serif",
+      'serif': "'Playfair Display', serif"
+    };
+    initials.style.fontFamily = fontMap[config.font] || 'sans-serif';
+    container.appendChild(initials);
+  }
+
+  const kemiConfig = {
+    bgStyle: 'diagonal',
+    color1: '#C94080',
+    color2: '#111827',
+    font: 'monument',
+    initials: 'KC',
+    ring: 'double',
+    ringColor: '#FFFFFF'
+  };
+
+  const ryanConfig = {
+    bgStyle: 'split_v',
+    color1: '#111827',
+    color2: '#374151',
+    font: 'anton',
+    initials: 'IL'
+  };
+
+  // Render Header Profiles
+  renderProfile('kemiProfile', kemiConfig);
+  renderProfile('ryanProfile', ryanConfig);
+
+  // Render Inline Turn Avatars
+  for (let i = 1; i <= 5; i++) {
+    renderProfile(`kemiAvatar${i}`, kemiConfig);
+    renderProfile(`ryanAvatar${i}`, ryanConfig);
+  }
+</script>
+
+</body>
+</html>

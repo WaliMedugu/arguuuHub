@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arguuu Debate — FNAF or Poppy Playtime</title>
+  <link rel="icon" type="image/png" href="arguuu_logo.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=Orbitron:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg-cream: #faf6f0;
+      --card-bg: #ffffff;
+      --sand: #e8ddd0;
+      --tan: #c9b99e;
+      --terracotta: #c4724a;
+      --rust: #a85535;
+      --ink: #1a110a;
+      --text: #3d2b1f;
+      --text-light: #7a5c4a;
+      --for-blue: #1a5fa8;
+      --for-blue-mid: #3a7fc4;
+      --for-blue-dark: #1a3a5f;
+      --against-rust: #a85535;
+      --against-rust-dark: #5a1a1a;
+      --for-bg: #e0f0ff;
+      --against-bg: #fce8e8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Lora', serif;
+      background-color: var(--bg-cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav.site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand);
+    }
+  
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .nav-logo span.for { color: var(--for-blue); }
+    .nav-logo span.against { color: var(--against-rust); }
+    
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 4rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .footer-logo span.for { color: var(--for-blue-mid); }
+    .footer-logo span.against { color: var(--terracotta); }
+    
+    .footer-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--sand);
+      text-align: right;
+    }
+    .footer-meta p { margin-bottom: 0.2rem; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--terracotta); }
+
+    .visit-counter {
+      margin-top: 1.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(232,221,208,0.7);
+    }
+    .visit-counter span {
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    /* ── ARENA HEADER ── */
+    .arena-header {
+      padding: 120px 1.5rem 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .topic-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .arena-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .participants {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .participant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── PROFILE RENDERER STYLES ── */
+    .profile-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ccc;
+    }
+    .profile-initials {
+      position: relative;
+      z-index: 10;
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .profile-ring {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 50%;
+      z-index: 5;
+    }
+    .pattern-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    .username {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .stance {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .stance.for { background: var(--for-bg); color: var(--for-blue); }
+    .stance.against { background: var(--against-bg); color: var(--against-rust); }
+
+    .vs {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--tan);
+      font-size: 1.2rem;
+    }
+
+    /* ── CHAT ARENA ── */
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .message-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 85%;
+      position: relative;
+    }
+
+    .message-group.left { align-self: flex-start; padding-left: 60px; }
+    .message-group.right { align-self: flex-end; align-items: flex-end; padding-right: 60px; }
+
+    .bubble {
+      padding: 1.1rem 1.5rem;
+      border-radius: 24px;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      font-weight: 600;
+      text-shadow: none !important;
+      box-shadow: none !important;
+    }
+
+    .left .bubble {
+      background: var(--for-bg);
+      color: var(--for-blue-dark);
+      border: none;
+    }
+
+    .right .bubble {
+      background: var(--against-bg);
+      color: var(--against-rust-dark);
+      border: none;
+    }
+
+    .bubble-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .left .bubble-meta { color: var(--for-blue); margin-left: 0.5rem; }
+    .right .bubble-meta { color: var(--against-rust); margin-right: 0.5rem; }
+
+    .turn-avatar {
+      position: absolute;
+      top: 0;
+      width: 44px;
+      height: 44px;
+    }
+
+    .left .turn-avatar { left: 0; }
+    .right .turn-avatar { right: 0; }
+
+    @media (max-width: 768px) {
+      nav.site-nav { padding: 1rem 1.5rem; }
+      .participants { gap: 1.5rem; }
+      .arena-header h1 { font-size: 1.8rem; }
+      .profile-circle { width: 56px; height: 56px; }
+      .profile-initials { font-size: 1.1rem; }
+      .message-group { max-width: 95%; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
+      .footer-meta { text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="arguuu-blog.html" style="font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; color: var(--tan); text-decoration: none;">← Back to Archive</a>
+    <a href="https://play.google.com/store/apps/details?id=com.arguuu.app" target="_blank" style="font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1.5px solid var(--sand); padding: 0.5rem 1rem; border-radius: 30px;">Get App</a>
+  </div>
+</nav>
+
+<header class="arena-header">
+  <div class="topic-badge">archived debate</div>
+  <h1>"FNAF or Poppy Playtime"</h1>
+  
+  <div class="participants">
+    <div class="participant">
+      <div id="glitchProfile" class="profile-circle"></div>
+      <span class="username">glitchboy404</span>
+      <span class="stance for">FOR</span>
+    </div>
+    <div class="vs">vs</div>
+    <div class="participant">
+      <div id="yaoiProfile" class="profile-circle"></div>
+      <span class="username">yaoi.and.discourse</span>
+      <span class="stance against">AGAINST</span>
+    </div>
+  </div>
+</header>
+
+<main class="chat-container">
+  
+  <!-- GLITCHBOY ROUND 1 -->
+  <div class="message-group left">
+    <div id="glitchAvatar1" class="turn-avatar profile-circle"></div>
+    <div class="bubble">fnaf literally invented modern mascot horror bro</div>
+    <div class="bubble">poppy playtime is just a cheap knockoff for ipad kids</div>
+    <div class="bubble">ngl huggy wuggy looks like a melted muppet</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:05</div>
+  </div>
+
+  <!-- YAOI ROUND 1 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar1" class="turn-avatar profile-circle"></div>
+    <div class="bubble">fnaf walked so poppy playtime could run</div>
+    <div class="bubble">the environmental storytelling in playtime co is objectively superior</div>
+    <div class="bubble">scott just made random minigames and let matpat write the lore for him</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:08</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 2 -->
+  <div class="message-group left">
+    <div id="glitchAvatar2" class="turn-avatar profile-circle"></div>
+    <div class="bubble">bro did not just disrespect the lore</div>
+    <div class="bubble">fnaf has 10 years of consistent worldbuilding</div>
+    <div class="bubble">poppy playtime took 3 years just to release a cat that sleeps gas</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:12</div>
+  </div>
+
+  <!-- YAOI ROUND 2 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar2" class="turn-avatar profile-circle"></div>
+    <div class="bubble">"consistent worldbuilding" is hilarious</div>
+    <div class="bubble">fnaf lore is a contradictory mess of retcons, illusion discs, and time travel pits</div>
+    <div class="bubble">poppy has an actual cohesive narrative arc about corporate exploitation</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:15</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 3 -->
+  <div class="message-group left">
+    <div id="glitchAvatar3" class="turn-avatar profile-circle"></div>
+    <div class="bubble">who cares about corporate explotaion</div>
+    <div class="bubble">poppy playtime is just propaganda by big toy companies to sell you grabpacks</div>
+    <div class="bubble">fnaf is indie and pure and protects us from the toy industry</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:19</div>
+  </div>
+
+  <!-- YAOI ROUND 3 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar3" class="turn-avatar profile-circle"></div>
+    <div class="bubble">what are you even talking about</div>
+    <div class="bubble">mob entertainment is an indie studio too</div>
+    <div class="bubble">your argument is literally dissolving into baseless conspiracy theories</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:22</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 4 -->
+  <div class="message-group left">
+    <div id="glitchAvatar4" class="turn-avatar profile-circle"></div>
+    <div class="bubble">im just saying i wanna see a purple guy get springlocked while 8bit music plays</div>
+    <div class="bubble">poppy is just a walking simulator where u do kindergarten math</div>
+    <div class="bubble">fnaf requires the reflexes of an actual god</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:26</div>
+  </div>
+
+  <!-- YAOI ROUND 4 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar4" class="turn-avatar profile-circle"></div>
+    <div class="bubble">the puzzles integrate seamlessly into the factory setting</div>
+    <div class="bubble">fnaf gameplay is just staring at a jpeg of a hallway and closing a door</div>
+    <div class="bubble">the sensory design in poppy chapter 3 completely eclipses security breach</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:30</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 5 -->
+  <div class="message-group left">
+    <div id="glitchAvatar5" class="turn-avatar profile-circle"></div>
+    <div class="bubble">security breach was a masterpiece of bugs and i loved it</div>
+    <div class="bubble">but straight up fnaf 1 to 4 are untouchable</div>
+    <div class="bubble">poppy will never have the cultural impact of the bite of 87</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:34</div>
+  </div>
+
+  <!-- YAOI ROUND 5 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar5" class="turn-avatar profile-circle"></div>
+    <div class="bubble">impact doesn't equal narrative quality</div>
+    <div class="bubble">catnap's psychological torment of the player is actual thematic horror</div>
+    <div class="bubble">freddy fazbear is just a chuck e cheese reject with a loud jumpscare sound</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:38</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 6 -->
+  <div class="message-group left">
+    <div id="glitchAvatar6" class="turn-avatar profile-circle"></div>
+    <div class="bubble">huggy wuggy is actually just a giant blue furry in a suit</div>
+    <div class="bubble">fnaf has real haunted metal. way more metal bro</div>
+    <div class="bubble">ur basically simping for a sesame street extra</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:42</div>
+  </div>
+
+  <!-- YAOI ROUND 6 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar6" class="turn-avatar profile-circle"></div>
+    <div class="bubble">reducing a bio-mechanical experiment to a "furry in a suit" is incredibly disingenuous</div>
+    <div class="bubble">the lore explicitly states they used human organic matter</div>
+    <div class="bubble">you clearly haven't read a single document in the game</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:45</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 7 -->
+  <div class="message-group left">
+    <div id="glitchAvatar7" class="turn-avatar profile-circle"></div>
+    <div class="bubble">reading documents in a horror game is nerd behavior</div>
+    <div class="bubble">if a game makes me read an email im uninstalling</div>
+    <div class="bubble">markiplier screaming at foxy is the peak of human internet</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:49</div>
+  </div>
+
+  <!-- YAOI ROUND 7 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar7" class="turn-avatar profile-circle"></div>
+    <div class="bubble">relying on youtubers overreacting to make your game scary is pathetic</div>
+    <div class="bubble">poppy creates dread through isolation, scale, and sound design</div>
+    <div class="bubble">the descent into the playcare is a masterclass in atmospheric tension</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:52</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 8 -->
+  <div class="message-group left">
+    <div id="glitchAvatar8" class="turn-avatar profile-circle"></div>
+    <div class="bubble">atmospheric tension = walking slowly in the dark holding sticky hands</div>
+    <div class="bubble">the grabpack is so stupid btw</div>
+    <div class="bubble">why do i need plastic hands to survive a demon</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 21:56</div>
+  </div>
+
+  <!-- YAOI ROUND 8 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar8" class="turn-avatar profile-circle"></div>
+    <div class="bubble">the grabpack is an innovative mechanical tool for interaction</div>
+    <div class="bubble">fnaf mechanics: click a tablet. flash a light.</div>
+    <div class="bubble">it requires zero mechanical skill or spatial awareness</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 21:59</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 9 -->
+  <div class="message-group left">
+    <div id="glitchAvatar9" class="turn-avatar profile-circle"></div>
+    <div class="bubble">try beating 50/20 mode in ultimate custom night and say that again</div>
+    <div class="bubble">u have to track 50 animatronics at once</div>
+    <div class="bubble">poppy playtime is just running down a scripted hallway</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 22:03</div>
+  </div>
+
+  <!-- YAOI ROUND 9 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar9" class="turn-avatar profile-circle"></div>
+    <div class="bubble">artificial difficulty by spamming 50 pngs at the screen isn't good design</div>
+    <div class="bubble">it's just rote memorization and rng</div>
+    <div class="bubble">poppy's chase sequences are dynamic and cinematic</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 22:06</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 10 -->
+  <div class="message-group left">
+    <div id="glitchAvatar10" class="turn-avatar profile-circle"></div>
+    <div class="bubble">cinematic means fake bro</div>
+    <div class="bubble">if i wanted a movie id go to amc</div>
+    <div class="bubble">plus poppy playtime sold nfts. instant L</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 22:10</div>
+  </div>
+
+  <!-- YAOI ROUND 10 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar10" class="turn-avatar profile-circle"></div>
+    <div class="bubble">bringing up outside studio drama because you lost the lore debate</div>
+    <div class="bubble">typical deflection tactic when you have no textual evidence</div>
+    <div class="bubble">the text of the game itself is what matters here</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 22:13</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 11 -->
+  <div class="message-group left">
+    <div id="glitchAvatar11" class="turn-avatar profile-circle"></div>
+    <div class="bubble">the text is just ripped off from sister location anyway</div>
+    <div class="bubble">the prototype is literally just ennard</div>
+    <div class="bubble">an amalgamation of robot parts building itself. fnaf did it first</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 22:17</div>
+  </div>
+
+  <!-- YAOI ROUND 11 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar11" class="turn-avatar profile-circle"></div>
+    <div class="bubble">ennard was a confusing mess motivated by wanting to wear human skin</div>
+    <div class="bubble">the prototype is a hyper-intelligent god figure to the toys</div>
+    <div class="bubble">the religious cultism around the prototype is fascinating writing</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 22:20</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 12 -->
+  <div class="message-group left">
+    <div id="glitchAvatar12" class="turn-avatar profile-circle"></div>
+    <div class="bubble">wearing skin is way scarier than a toy god</div>
+    <div class="bubble">ennard scooped michael afton bro</div>
+    <div class="bubble">dogday getting cut in half was just pure shock value for tiktok</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 22:24</div>
+  </div>
+
+  <!-- YAOI ROUND 12 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar12" class="turn-avatar profile-circle"></div>
+    <div class="bubble">dogday's fate was the tragic culmination of his blind faith</div>
+    <div class="bubble">it served the narrative purpose of showing the prototype's utter cruelty</div>
+    <div class="bubble">fnaf just stuffs kids in suits off-screen and calls it a day</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 22:27</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 13 -->
+  <div class="message-group left">
+    <div id="glitchAvatar13" class="turn-avatar profile-circle"></div>
+    <div class="bubble">off screen makes it scarier cuz u have to use ur brain to imagine it</div>
+    <div class="bubble">wait actually u might be cooking about the religious cultism thing</div>
+    <div class="bubble">nah nevermind fnaf is still better cuz william afton always comes back</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 22:31</div>
+  </div>
+
+  <!-- YAOI ROUND 13 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar13" class="turn-avatar profile-circle"></div>
+    <div class="bubble">"he always comes back" is a tired trope that ruined the franchise's stakes</div>
+    <div class="bubble">but... i will admit that off-screen horror can sometimes be more effective</div>
+    <div class="bubble">fnaf 1's simplicity did have a certain elegance that poppy lacks.</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 22:34</div>
+  </div>
+
+  <!-- GLITCHBOY ROUND 14 -->
+  <div class="message-group left">
+    <div id="glitchAvatar14" class="turn-avatar profile-circle"></div>
+    <div class="bubble">HA I KNEW IT</div>
+    <div class="bubble">fnaf reigns supreme baby</div>
+    <div class="bubble">go put ur grabpack in the trash where it belongs</div>
+    <div class="bubble-meta">glitchboy404 - FOR - 22:38</div>
+  </div>
+
+  <!-- YAOI ROUND 14 -->
+  <div class="message-group right">
+    <div id="yaoiAvatar14" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i conceded a single point about aesthetic restraint, not the entire argument</div>
+    <div class="bubble">you are absolutely impossible to have a nuanced conversation with</div>
+    <div class="bubble">i'm going back to analyzing vhs tapes. goodnight.</div>
+    <div class="bubble-meta">yaoi.and.discourse - AGAINST - 22:41</div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="index.html" class="footer-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <div class="footer-meta">
+    <div class="footer-links">
+      <a href="arguuu-about.html">About</a>
+      <a href="arguuu-help.html">Help Center</a>
+      <a href="arguuu-guidelines.html">Guidelines</a>
+      <a href="arguuu-licenses.html">Licenses</a>
+      <a href="arguuu-legal.html">Legal</a>
+      <a href="arguuu-blog.html">Archived Debates</a>
+      <a href="report-bug.html">Report Bug</a>
+      <a href="https://wali-blog.vercel.app/" target="_blank">Portfolio ↗</a>
+    </div>
+    <p>© 2026 Blue Particle Studios</p>
+    <p>Built by Wali Medugu</p>
+    <div class="visit-counter">
+      <span id="visit-count">...</span> times this site was visited.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function renderProfile(containerId, config) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = '';
+    
+    // 1. Background (Solid/Pattern/Mesh)
+    if (config.bgStyle === 'pattern') {
+      container.style.backgroundColor = config.bgColor;
+      const overlay = document.createElement('div');
+      overlay.className = 'pattern-overlay';
+      
+      let svg = '';
+      if (config.patternType === 'circuit') {
+        svg = `<svg width="100%" height="100%"><defs><pattern id="p_${containerId}" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0 10h20M10 0v20" stroke="${config.patternColor}" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(#p_${containerId})"/></svg>`;
+      } else if (config.patternType === 'dots') {
+        svg = `<svg width="100%" height="100%"><defs><pattern id="p_${containerId}" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="${config.patternColor}" opacity="0.4"/></pattern></defs><rect width="100%" height="100%" fill="url(#p_${containerId})"/></svg>`;
+      }
+      overlay.innerHTML = svg;
+      container.appendChild(overlay);
+    } else if (config.bgStyle === 'mesh') {
+      container.style.background = `radial-gradient(circle at top left, ${config.meshColors[0]}, transparent), radial-gradient(circle at bottom right, ${config.meshColors[1]}, transparent)`;
+      container.style.backgroundColor = config.bgColor || '#fff';
+    }
+
+    // 2. Ring
+    const ring = document.createElement('div');
+    ring.className = 'profile-ring';
+    if (config.ring === 'neon-green') {
+      ring.style.border = '3px solid #39ff14';
+      ring.style.boxShadow = 'inset 0 0 10px #39ff14';
+    } else if (config.ring === 'pastel-purple') {
+      ring.style.border = '3px solid #ba68c8';
+    }
+    container.appendChild(ring);
+
+    // 3. Initials
+    const initials = document.createElement('span');
+    initials.className = 'profile-initials';
+    initials.innerText = config.initials;
+    initials.style.fontFamily = config.font || 'sans-serif';
+    if (config.font === 'Orbitron') initials.style.fontSize = '1.1rem';
+    container.appendChild(initials);
+  }
+
+  const glitchPersona = {
+    bgStyle: 'pattern',
+    patternType: 'circuit',
+    bgColor: '#111',
+    patternColor: '#39ff14',
+    ring: 'neon-green',
+    font: 'Orbitron',
+    initials: 'GB'
+  };
+
+  const yaoiPersona = {
+    bgStyle: 'mesh',
+    bgColor: '#fce4ec',
+    meshColors: ['#f06292', '#ba68c8'],
+    ring: 'pastel-purple',
+    font: 'Lora',
+    initials: 'YD'
+  };
+
+  // Render main headers
+  renderProfile('glitchProfile', glitchPersona);
+  renderProfile('yaoiProfile', yaoiPersona);
+
+  // Render message avatars
+  for(let i=1; i<=14; i++) {
+    renderProfile(`glitchAvatar${i}`, glitchPersona);
+    renderProfile(`yaoiAvatar${i}`, yaoiPersona);
+  }
+</script>
+
+</body>
+</html>

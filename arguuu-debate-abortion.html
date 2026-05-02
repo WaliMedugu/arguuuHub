@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arguuu Debate — Abortion</title>
+  <link rel="icon" type="image/png" href="arguuu_logo.png">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      --bg-cream: #faf6f0;
+      --card-bg: #ffffff;
+      --sand: #e8ddd0;
+      --tan: #c9b99e;
+      --terracotta: #c4724a;
+      --rust: #a85535;
+      --ink: #1a110a;
+      --text: #3d2b1f;
+      --text-light: #7a5c4a;
+      --for-blue: #1a5fa8;
+      --for-blue-mid: #3a7fc4;
+      --for-blue-dark: #1a3a5f;
+      --against-rust: #a85535;
+      --against-rust-dark: #5a1a1a;
+      --for-bg: #e0f0ff;
+      --against-bg: #fce8e8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Lora', serif;
+      background-color: var(--bg-cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav.site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4rem;
+      background: rgba(250,246,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand);
+    }
+  
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+    .nav-logo span.for { color: var(--for-blue); }
+    .nav-logo span.against { color: var(--against-rust); }
+    
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 4rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .footer-logo span.for { color: var(--for-blue-mid); }
+    .footer-logo span.against { color: var(--terracotta); }
+    
+    .footer-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--sand);
+      text-align: right;
+    }
+    .footer-meta p { margin-bottom: 0.2rem; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 0.5rem;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--terracotta); }
+
+    .visit-counter {
+      margin-top: 1.5rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(232,221,208,0.7);
+    }
+    .visit-counter span {
+      color: var(--terracotta);
+      font-weight: 500;
+    }
+
+    /* ── ARENA HEADER ── */
+    .arena-header {
+      padding: 120px 1.5rem 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .topic-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--terracotta);
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .arena-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .participants {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+
+    .participant {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── PROFILE RENDERER STYLES ── */
+    .profile-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ccc;
+    }
+    .profile-initials {
+      position: relative;
+      z-index: 10;
+      font-size: 1.5rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .profile-ring {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border-radius: 50%;
+      z-index: 5;
+    }
+    .pattern-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+
+    .username {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .stance {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .stance.for { background: var(--for-bg); color: var(--for-blue); }
+    .stance.against { background: var(--against-bg); color: var(--against-rust); }
+
+    .vs {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--tan);
+      font-size: 1.2rem;
+    }
+
+    /* ── CHAT ARENA ── */
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .message-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 85%;
+      position: relative;
+    }
+
+    .message-group.left { align-self: flex-start; padding-left: 60px; }
+    .message-group.right { align-self: flex-end; align-items: flex-end; padding-right: 60px; }
+
+    .bubble {
+      padding: 1.1rem 1.5rem;
+      border-radius: 24px;
+      font-size: 1.35rem;
+      line-height: 1.25;
+      font-family: 'Playfair Display', serif;
+      position: relative;
+      font-weight: 600;
+      text-shadow: none !important;
+      box-shadow: none !important;
+    }
+
+    .left .bubble {
+      background: var(--for-bg);
+      color: var(--for-blue-dark);
+      border: none;
+    }
+
+    .right .bubble {
+      background: var(--against-bg);
+      color: var(--against-rust-dark);
+      border: none;
+    }
+
+    .bubble-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    .left .bubble-meta { color: var(--for-blue); margin-left: 0.5rem; }
+    .right .bubble-meta { color: var(--against-rust); margin-right: 0.5rem; }
+
+    .turn-avatar {
+      position: absolute;
+      top: 0;
+      width: 44px;
+      height: 44px;
+    }
+
+    .left .turn-avatar { left: 0; }
+    .right .turn-avatar { right: 0; }
+
+    @media (max-width: 768px) {
+      nav.site-nav { padding: 1rem 1.5rem; }
+      .participants { gap: 1.5rem; }
+      .arena-header h1 { font-size: 1.8rem; }
+      .profile-circle { width: 56px; height: 56px; }
+      .profile-initials { font-size: 1.1rem; }
+      .message-group { max-width: 95%; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
+      .footer-meta { text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <a href="arguuu-blog.html" style="font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; color: var(--tan); text-decoration: none;">← Back to Archive</a>
+    <a href="https://play.google.com/store/apps/details?id=com.arguuu.app" target="_blank" style="font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1.5px solid var(--sand); padding: 0.5rem 1rem; border-radius: 30px;">Get App</a>
+  </div>
+</nav>
+
+<header class="arena-header">
+  <div class="topic-badge">archived debate</div>
+  <h1>"Abortion"</h1>
+  
+  <div class="participants">
+    <div class="participant">
+      <div id="peaceProfile" class="profile-circle"></div>
+      <span class="username">peacefulpanic</span>
+      <span class="stance for">FOR</span>
+    </div>
+    <div class="vs">vs</div>
+    <div class="participant">
+      <div id="stoicProfile" class="profile-circle"></div>
+      <span class="username">StoicSocrates</span>
+      <span class="stance against">AGAINST</span>
+    </div>
+  </div>
+</header>
+
+<main class="chat-container">
+  
+  <!-- ROUND 1 -->
+  <div class="message-group left">
+    <div id="peaceAvatar1" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i just feel like... forcing someone to carry a pregnancy they don't want is so incredibly cruel.</div>
+    <div class="bubble">it's her body and her entire life... nobody should be forced to endure that kind of fear...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:05</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar1" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Cruelty is a subjective emotional metric. The objective biological reality is that a genetically distinct human organism is created at conception.</div>
+    <div class="bubble">Legislation must be built upon objective biological facts, not the subjective emotional distress of the host.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:08</div>
+  </div>
+
+  <!-- ROUND 2 -->
+  <div class="message-group left">
+    <div id="peaceAvatar2" class="turn-avatar profile-circle"></div>
+    <div class="bubble">but it's not just about biology... it's about the person who has to go through nine months of physical pain and changes...</div>
+    <div class="bubble">we have to have compassion for the women who are here right now...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:12</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar2" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Compassion cannot supersede the fundamental right to life. The right to exist is the foundational prerequisite for all other human rights.</div>
+    <div class="bubble">If we prioritize the temporary physical comfort of one human over the very existence of another, we abandon ethical consistency.</div>
+    <div class="bubble">The right to life must logically precede the right to bodily autonomy.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:15</div>
+  </div>
+
+  <!-- ROUND 3 -->
+  <div class="message-group left">
+    <div id="peaceAvatar3" class="turn-avatar profile-circle"></div>
+    <div class="bubble">it just breaks my heart to think of young girls being forced into motherhood... it alters your whole body forever...</div>
+    <div class="bubble">it's a permanent consequence for someone who might just be a child themselves...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:19</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar3" class="turn-avatar profile-circle"></div>
+    <div class="bubble">I acknowledge the biological burden of pregnancy. However, the destruction of a developing human life is a permanent, fatal alteration.</div>
+    <div class="bubble">A permanent, fatal consequence for the fetus objectively outweighs a temporary or survivable consequence for the mother.</div>
+    <div class="bubble">This is a basic utilitarian calculation of harm reduction.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:22</div>
+  </div>
+
+  <!-- ROUND 4 -->
+  <div class="message-group left">
+    <div id="peaceAvatar4" class="turn-avatar profile-circle"></div>
+    <div class="bubble">but a fetus isn't aware... it doesn't have memories or feelings or a life yet...</div>
+    <div class="bubble">the mother is here right now, she has a name and dreams, and she is hurting...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:26</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar4" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Sentience and memory are flawed metrics for personhood. A patient in a temporary coma lacks both, yet killing them remains classified as murder.</div>
+    <div class="bubble">Personhood must be based on objective biological status as a member of the species, not on developmental milestones.</div>
+    <div class="bubble">Milestones vary among individuals. DNA does not.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:29</div>
+  </div>
+
+  <!-- ROUND 5 -->
+  <div class="message-group left">
+    <div id="peaceAvatar5" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i don't think comparing a coma patient to a cluster of cells is fair at all...</div>
+    <div class="bubble">one has lived and loved and the other is just a potential life...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:33</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar5" class="turn-avatar profile-circle"></div>
+    <div class="bubble">The term "cluster of cells" is biologically disingenuous. You and I are merely larger, more developed clusters of cells.</div>
+    <div class="bubble">It is not a "potential" life. It is an actual, living organism of the species Homo sapiens, currently in the embryonic stage of development.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:36</div>
+  </div>
+
+  <!-- ROUND 6 -->
+  <div class="message-group left">
+    <div id="peaceAvatar6" class="turn-avatar profile-circle"></div>
+    <div class="bubble">please try to see the human side of this... what if the mother can't feed the baby? what if she's trapped in poverty?</div>
+    <div class="bubble">it's just so sad to bring a child into a world where they will only suffer...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:40</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar6" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Your argument asserts that ending a human life is preferable to letting them experience poverty. That establishes a highly dangerous precedent.</div>
+    <div class="bubble">Eradicating the sufferer does not eradicate the suffering.</div>
+    <div class="bubble">By your logic, we should terminate impoverished adults to spare them from financial hardship.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:43</div>
+  </div>
+
+  <!-- ROUND 7 -->
+  <div class="message-group left">
+    <div id="peaceAvatar7" class="turn-avatar profile-circle"></div>
+    <div class="bubble">no... no i would never say that... i just mean it's an act of mercy before they can feel the pain of the world...</div>
+    <div class="bubble">it comes from a place of love... it really does...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:47</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar7" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Love is an emotional state, not a framework for ethical legislation.</div>
+    <div class="bubble">Mercy killings executed without the explicit consent of the subject are universally condemned in modern jurisprudence.</div>
+    <div class="bubble">You are projecting your own fear of suffering onto a distinct entity to justify terminating its existence.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:51</div>
+  </div>
+
+  <!-- ROUND 8 -->
+  <div class="message-group left">
+    <div id="peaceAvatar8" class="turn-avatar profile-circle"></div>
+    <div class="bubble">but it is literally inside her body... no one should be forced to use their organs to keep someone else alive...</div>
+    <div class="bubble">you wouldn't legally force someone to donate blood or bone marrow...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 11:55</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar8" class="turn-avatar profile-circle"></div>
+    <div class="bubble">You are referencing the famous violinist thought experiment. It contains a fatal logical flaw regarding the nature of the relationship.</div>
+    <div class="bubble">Pregnancy is not a forced organ donation to a random stranger. It is the natural biological consequence of the reproductive system.</div>
+    <div class="bubble">The relationship is parental, which carries inherent legal and moral obligations of care.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 11:59</div>
+  </div>
+
+  <!-- ROUND 9 -->
+  <div class="message-group left">
+    <div id="peaceAvatar9" class="turn-avatar profile-circle"></div>
+    <div class="bubble">sometimes it isn't a consequence of choice though... what about victims of assault?</div>
+    <div class="bubble">it's just horrifying to force someone to carry the trauma of an attacker...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:03</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar9" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Assault is a heinous crime, and the perpetrator must face severe legal penalties. However, the resulting child is an innocent secondary victim.</div>
+    <div class="bubble">We do not apply the death penalty to the innocent offspring of criminals in any other legal context.</div>
+    <div class="bubble">Logical consistency requires that the circumstances of conception do not dictate the moral worth of the human being.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 12:07</div>
+  </div>
+
+  <!-- ROUND 10 -->
+  <div class="message-group left">
+    <div id="peaceAvatar10" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i just can't imagine looking a traumatized victim in the eye and telling them they have no choice...</div>
+    <div class="bubble">where is the empathy in that? it just feels so cold...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:11</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar10" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Empathy for the victim is necessary for psychological care, but empathy cannot dictate morality or state law.</div>
+    <div class="bubble">I examine the objective facts. The psychological trauma of the mother does not alter the biological status of the fetus.</div>
+    <div class="bubble">We do not allow traumatized individuals to commit acts of violence as a coping mechanism.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 12:15</div>
+  </div>
+
+  <!-- ROUND 11 -->
+  <div class="message-group left">
+    <div id="peaceAvatar11" class="turn-avatar profile-circle"></div>
+    <div class="bubble">it just feels like you care more about a microscopic embryo than a living breathing woman who is crying for help...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:19</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar11" class="turn-avatar profile-circle"></div>
+    <div class="bubble">I care about logical consistency. Both the woman and the embryo are living organisms.</div>
+    <div class="bubble">You are arbitrarily assigning value based on size and visibility. If size determined human worth, toddlers would be less valuable than adults.</div>
+    <div class="bubble">We must apply the right to life uniformly across the entire spectrum of human development.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 12:23</div>
+  </div>
+
+  <!-- ROUND 12 -->
+  <div class="message-group left">
+    <div id="peaceAvatar12" class="turn-avatar profile-circle"></div>
+    <div class="bubble">it's not about size... it's about consciousness and being part of the world...</div>
+    <div class="bubble">an embryo doesn't even know it exists yet...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:27</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar12" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Self-awareness develops long after birth. Infants do not possess true self-recognition until roughly eighteen months of age.</div>
+    <div class="bubble">If consciousness is your requisite standard for human rights, then logically, infanticide must also be permissible.</div>
+    <div class="bubble">You cannot philosophically avoid this conclusion given your stated premise.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 12:31</div>
+  </div>
+
+  <!-- ROUND 13 -->
+  <div class="message-group left">
+    <div id="peaceAvatar13" class="turn-avatar profile-circle"></div>
+    <div class="bubble">nobody wants infanticide... that's horrible! a baby is born, it's breathing on its own... it's completely different...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:35</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar13" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Birth is merely a change in geographic location and the method of receiving oxygen.</div>
+    <div class="bubble">It does not alter the intrinsic genetic nature or the moral worth of the entity.</div>
+    <div class="bubble">Utilizing geographic location—inside or outside the womb—to determine human rights is philosophically untenable.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 12:39</div>
+  </div>
+
+  <!-- ROUND 14 -->
+  <div class="message-group left">
+    <div id="peaceAvatar14" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i just feel like women will always find a way to do it... making it illegal just makes it unsafe...</div>
+    <div class="bubble">we don't want women dying in back alleys... it's so dangerous...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:43</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar14" class="turn-avatar profile-circle"></div>
+    <div class="bubble">The empirical fact that a law will be broken does not justify repealing the law. People commit theft, yet we maintain laws against robbery.</div>
+    <div class="bubble">The primary function of the law is to establish moral boundaries and protect the vulnerable, regardless of compliance rates.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 12:47</div>
+  </div>
+
+  <!-- ROUND 15 -->
+  <div class="message-group left">
+    <div id="peaceAvatar15" class="turn-avatar profile-circle"></div>
+    <div class="bubble">but maternal mortality rates go up when you ban it... real women lose their lives...</div>
+    <div class="bubble">it just feels like a war on women's healthcare...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:51</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar15" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Maternal mortality is a systemic medical issue requiring better healthcare infrastructure, not the legalization of fetal termination.</div>
+    <div class="bubble">Furthermore, roughly fifty percent of aborted fetuses are female.</div>
+    <div class="bubble">Abortion effectively eliminates millions of women before they are born. Your "war on women" framework is contradictory.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 12:55</div>
+  </div>
+
+  <!-- ROUND 16 -->
+  <div class="message-group left">
+    <div id="peaceAvatar16" class="turn-avatar profile-circle"></div>
+    <div class="bubble">it's about bodily autonomy... nobody can use my body without my continuous consent...</div>
+    <div class="bubble">i should be able to revoke consent at any time... it's my right...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 12:59</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar16" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Consent is an agreement between capable parties. You cannot "revoke consent" from an entity that did not ask to be placed in dependency.</div>
+    <div class="bubble">A parent cannot legally revoke consent to care for their newborn and leave it to starve.</div>
+    <div class="bubble">The state recognizes that extreme biological dependency creates a profound moral and legal obligation.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:03</div>
+  </div>
+
+  <!-- ROUND 17 -->
+  <div class="message-group left">
+    <div id="peaceAvatar17" class="turn-avatar profile-circle"></div>
+    <div class="bubble">pregnancy is an active biological process... it literally takes nutrients from her bones...</div>
+    <div class="bubble">it's a profound physical sacrifice that shouldn't be mandated by the state...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 13:07</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar17" class="turn-avatar profile-circle"></div>
+    <div class="bubble">I do not deny the biological toll. However, the alternative is the absolute cessation of another human being's existence.</div>
+    <div class="bubble">A temporary biological sacrifice is infinitely preferable to a permanent extermination. The scale of harm is vastly disproportionate.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:11</div>
+  </div>
+
+  <!-- ROUND 18 -->
+  <div class="message-group left">
+    <div id="peaceAvatar18" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i just think it's deeply personal... the government shouldn't be inside a doctor's office...</div>
+    <div class="bubble">deciding what a woman can do with her own future...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 13:15</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar18" class="turn-avatar profile-circle"></div>
+    <div class="bubble">The government's primary mandate is the protection of human life. It regulates medical practices continuously to prevent harm.</div>
+    <div class="bubble">Intervening to prevent the termination of a genetically distinct human being falls precisely within the parameters of a functioning state.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:19</div>
+  </div>
+
+  <!-- ROUND 19 -->
+  <div class="message-group left">
+    <div id="peaceAvatar19" class="turn-avatar profile-circle"></div>
+    <div class="bubble">it just feels like men making laws about bodies they don't even understand...</div>
+    <div class="bubble">you don't know what the terror of an unwanted pregnancy actually feels like...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 13:23</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar19" class="turn-avatar profile-circle"></div>
+    <div class="bubble">My gender is entirely irrelevant to the objective truth of the premise. Ad hominem arguments do not invalidate biological facts.</div>
+    <div class="bubble">An oncologist does not need to possess cancer to understand how to treat it. Logic is not restricted by biology or personal experience.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:27</div>
+  </div>
+
+  <!-- ROUND 20 -->
+  <div class="message-group left">
+    <div id="peaceAvatar20" class="turn-avatar profile-circle"></div>
+    <div class="bubble">it's not ad hominem, it's lived reality...</div>
+    <div class="bubble">it's so easy to debate this intellectually when you never have to face the physical reality of it...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 13:31</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar20" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Proximity to an issue often clouds rational judgment with overwhelming emotional bias.</div>
+    <div class="bubble">Intellectual distance allows for objective moral reasoning. If we legislated based solely on terror, our justice system would collapse.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:35</div>
+  </div>
+
+  <!-- ROUND 21 -->
+  <div class="message-group left">
+    <div id="peaceAvatar21" class="turn-avatar profile-circle"></div>
+    <div class="bubble">you're just viewing it all as a math equation... human lives aren't just variables...</div>
+    <div class="bubble">there's real pain and fear and despair involved...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 13:39</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar21" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Exactly. Human lives are not variables. Therefore, we cannot erase them simply because their existence causes fear or despair.</div>
+    <div class="bubble">We must address the despair through social support and robust medical care, not through the mechanism of abortion.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:43</div>
+  </div>
+
+  <!-- ROUND 22 -->
+  <div class="message-group left">
+    <div id="peaceAvatar22" class="turn-avatar profile-circle"></div>
+    <div class="bubble">but what if the fetus has a severe anomaly... what if it will only live for a few hours in agony...</div>
+    <div class="bubble">wouldn't peace be kinder than suffering?</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 13:47</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar22" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Euthanasia for the severely disabled is a separate debate, but it historically leads directly to eugenics.</div>
+    <div class="bubble">We do not determine human worth by functionality or life expectancy. We provide palliative care for dying infants, just as we do for adults.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:51</div>
+  </div>
+
+  <!-- ROUND 23 -->
+  <div class="message-group left">
+    <div id="peaceAvatar23" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i just can't agree... i look at the world and i see women suffering...</div>
+    <div class="bubble">i want to alleviate that suffering... that's all i want...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 13:55</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar23" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Your desire to alleviate suffering is a noble emotional impulse. However, your proposed method violates the non-aggression principle.</div>
+    <div class="bubble">You cannot ethically alleviate the suffering of one party by extinguishing the life of another.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 13:59</div>
+  </div>
+
+  <!-- ROUND 24 -->
+  <div class="message-group left">
+    <div id="peaceAvatar24" class="turn-avatar profile-circle"></div>
+    <div class="bubble">i just... i don't see it as extinguishing a life.</div>
+    <div class="bubble">i see it as giving the woman her life back...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 14:03</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar24" class="turn-avatar profile-circle"></div>
+    <div class="bubble">Your subjective perception does not alter the biological reality. Every embryology textbook defines it as the beginning of a human life.</div>
+    <div class="bubble">You are simply choosing to ignore the science. Willful ignorance of biology is required to maintain the pro-choice position.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 14:07</div>
+  </div>
+
+  <!-- ROUND 25 -->
+  <div class="message-group left">
+    <div id="peaceAvatar25" class="turn-avatar profile-circle"></div>
+    <div class="bubble">it's not ignorance, it's empathy...</div>
+    <div class="bubble">i'm choosing to focus on the person who is here, who is crying, who needs help...</div>
+    <div class="bubble-meta">peacefulpanic - FOR - 14:11</div>
+  </div>
+
+  <div class="message-group right">
+    <div id="stoicAvatar25" class="turn-avatar profile-circle"></div>
+    <div class="bubble">You are engaging in selective empathy. You apply it to the visible subject and deliberately withhold it from the invisible subject.</div>
+    <div class="bubble">True moral frameworks cannot be based on visibility or convenience.</div>
+    <div class="bubble">The debate is concluded. Your emotional appeals have failed to dismantle the logical premise.</div>
+    <div class="bubble-meta">StoicSocrates - AGAINST - 14:15</div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="index.html" class="footer-logo">
+    Arg<span class="for">u</span><span class="against">u</span>u
+  </a>
+  <div class="footer-meta">
+    <div class="footer-links">
+      <a href="arguuu-about.html">About</a>
+      <a href="arguuu-help.html">Help Center</a>
+      <a href="arguuu-guidelines.html">Guidelines</a>
+      <a href="arguuu-licenses.html">Licenses</a>
+      <a href="arguuu-legal.html">Legal</a>
+      <a href="arguuu-blog.html">Archived Debates</a>
+      <a href="report-bug.html">Report Bug</a>
+      <a href="https://wali-blog.vercel.app/" target="_blank">Portfolio ↗</a>
+    </div>
+    <p>© 2026 Blue Particle Studios</p>
+    <p>Built by Wali Medugu</p>
+    <div class="visit-counter">
+      <span id="visit-count">...</span> times this site was visited.
+    </div>
+  </div>
+</footer>
+
+<script>
+  function renderProfile(containerId, config) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = '';
+    
+    // 1. Background
+    if (config.bgStyle === 'pattern') {
+      container.style.backgroundColor = config.bgColor;
+      const overlay = document.createElement('div');
+      overlay.className = 'pattern-overlay';
+      
+      let svg = '';
+      if (config.patternType === 'grid') {
+        svg = `<svg width="100%" height="100%"><defs><pattern id="p_${containerId}" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M 12 0 L 0 0 0 12" fill="none" stroke="${config.patternColor}" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100%" height="100%" fill="url(#p_${containerId})"/></svg>`;
+      }
+      overlay.innerHTML = svg;
+      container.appendChild(overlay);
+    } else if (config.bgStyle === 'mesh') {
+      container.style.background = `radial-gradient(circle at top left, ${config.meshColors[0]}, transparent), radial-gradient(circle at bottom right, ${config.meshColors[1]}, transparent)`;
+      container.style.backgroundColor = config.bgColor || '#fff';
+    }
+
+    // 2. Ring
+    const ring = document.createElement('div');
+    ring.className = 'profile-ring';
+    if (config.ring === 'soft-glow') {
+      ring.style.border = '2px solid rgba(251, 207, 232, 0.8)';
+      ring.style.boxShadow = '0 0 12px rgba(191, 219, 254, 0.6)';
+    } else if (config.ring === 'rigid-marble') {
+      ring.style.border = '4px solid #64748b';
+      ring.style.boxShadow = 'inset 0 0 5px rgba(0,0,0,0.1)';
+    }
+    container.appendChild(ring);
+
+    // 3. Initials
+    const initials = document.createElement('span');
+    initials.className = 'profile-initials';
+    initials.innerText = config.initials;
+    initials.style.fontFamily = config.font || 'sans-serif';
+    if (config.font === 'Playfair Display') initials.style.fontSize = '1.3rem';
+    container.appendChild(initials);
+  }
+
+  const peacefulPersona = {
+    bgStyle: 'mesh',
+    bgColor: '#fdf2f8',
+    meshColors: ['#fbcfe8', '#bfdbfe'],
+    ring: 'soft-glow',
+    font: 'Lora',
+    initials: 'PP'
+  };
+
+  const stoicPersona = {
+    bgStyle: 'pattern',
+    patternType: 'grid',
+    bgColor: '#ffffff',
+    patternColor: '#64748b',
+    ring: 'rigid-marble',
+    font: 'Playfair Display',
+    initials: 'SS'
+  };
+
+  renderProfile('peaceProfile', peacefulPersona);
+  renderProfile('stoicProfile', stoicPersona);
+
+  for(let i=1; i<=25; i++) {
+    if (document.getElementById(`peaceAvatar${i}`)) renderProfile(`peaceAvatar${i}`, peacefulPersona);
+    if (document.getElementById(`stoicAvatar${i}`)) renderProfile(`stoicAvatar${i}`, stoicPersona);
+  }
+</script>
+
+</body>
+</html>
