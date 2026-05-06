@@ -19,6 +19,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 
+<meta name="google-site-verification" content="googlee44ee796011ac16d" />
+<meta name="google-site-verification" content="dRLJvaOJw3_mZcXlaKGgqBKMNl9CjcRMqYyytNm74Wk" />
+
+<script>
+  // Android Deep Link Fallback (FR-DEEPLINK-FALLBACK-V2)
+  (function() {
+    const ua = navigator.userAgent.toLowerCase();
+    const isAndroid = /android/.test(ua);
+    const isLocal = /localhost|127\.0\.0\.1/.test(window.location.hostname);
+    
+    if (isAndroid && !isLocal) {
+      // Construct an Android Intent URL. 
+      // This tells the browser: 
+      // 1. Try opening the app via 'arguuu://' scheme
+      // 2. If that fails, try opening 'com.arguuu.app' package
+      // 3. If that fails, go to the Play Store (fallback_url)
+      const path = window.location.pathname.substring(1);
+      const intentUrl = "intent://" + path + "#Intent;scheme=arguuu;package=com.arguuu.app;S.browser_fallback_url=https://play.google.com/store/apps/details?id=com.arguuu.app;end";
+      
+      window.location.href = intentUrl;
+    }
+  })();
+</script>
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arguuu-hub.vercel.app/">
