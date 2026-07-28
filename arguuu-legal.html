@@ -27,8 +27,101 @@
   <link rel="icon" type="image/png" href="arguuu_logo.png">
   <link rel="apple-touch-icon" href="arguuu_logo.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <style>
+  /* --- Anthropic Custom Fonts --- */
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Extrabold-Static.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-MediumItalic-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web Regular Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Keep the 'Arguuu' Logo/Branding in Playfair Display */
+  .nav-logo, .footer-logo, .nav-logo *, .footer-logo * {
+    font-family: 'Playfair Display', serif !important;
+  }
+
     :root {
       --cream: #faf6f0;
       --warm-white: #fdf9f4;
@@ -51,7 +144,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lora', Georgia, serif;
+      font-family: 'Anthropic Sans', sans-serif;
       background-color: var(--cream);
       color: var(--text);
       line-height: 1.75;
@@ -73,7 +166,7 @@
     }
   
     .nav-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 1.5rem;
       font-weight: 900;
       color: var(--ink);
@@ -86,7 +179,7 @@
     .nav-logo span.against { color: var(--against-rust); }
   
     .nav-legal-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -104,7 +197,7 @@
     }
     .nav-links li { list-style: none; }
     .nav-links a.tab-btn {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -172,7 +265,7 @@
       pointer-events: all;
     }
     .mobile-menu a {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 2.2rem;
       font-weight: 700;
       text-decoration: none;
@@ -197,7 +290,7 @@
     }
 
     .page-hero .eyebrow {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       color: var(--terracotta);
       text-transform: uppercase;
@@ -206,7 +299,7 @@
     }
 
     .page-hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: clamp(28px, 5vw, 46px);
       font-weight: 700;
       color: #fff;
@@ -217,7 +310,7 @@
     .page-hero h1 em { color: var(--terracotta); font-style: italic; }
 
     .page-hero p {
-      font-family: 'Lora', serif;
+      font-family: 'Anthropic Sans', sans-serif;
       color: var(--tan);
       font-size: 16px;
       max-width: 580px;
@@ -230,7 +323,7 @@
       border: 1px solid rgba(196,114,74,0.4);
       border-radius: 30px;
       padding: 6px 18px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       color: var(--terracotta);
       letter-spacing: 1px;
@@ -248,7 +341,7 @@
 
     /* ── SECTION HEADINGS ─────────────────────────── */
     .section-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 10px;
       font-weight: 500;
       text-transform: uppercase;
@@ -258,7 +351,7 @@
     }
 
     h2.doc-h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 30px;
       font-weight: 700;
       color: var(--ink);
@@ -267,7 +360,7 @@
     }
 
     h3.doc-h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 20px;
       font-weight: 600;
       color: var(--dark);
@@ -297,7 +390,7 @@
     }
 
     .info-box .ib-title {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
@@ -322,7 +415,7 @@
     .def-item:last-child { border-bottom: none; }
 
     .def-term {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 12px;
       font-weight: 500;
       color: var(--terracotta);
@@ -383,7 +476,7 @@
       height: 24px;
       background: var(--terracotta);
       color: #fff;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       font-weight: 500;
       border-radius: 50%;
@@ -412,7 +505,7 @@
     table.doc-table th {
       background: var(--dark);
       color: #fff;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -433,7 +526,7 @@
 
     /* ── FAQ ACCORDION ────────────────────────────── */
     .faq-section-title {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 2px;
@@ -473,7 +566,7 @@
     }
 
     .faq-q-text {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 17px;
       font-weight: 600;
       color: var(--dark);
@@ -542,14 +635,14 @@
     .safety-card-icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; }
 
     .safety-card-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 17px;
       font-weight: 600;
       color: #fff;
     }
 
     .safety-card-sub {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       color: var(--tan);
       margin-top: 2px;
@@ -572,7 +665,7 @@
     .safety-row:last-child { border-bottom: none; padding-bottom: 0; }
 
     .safety-field { font-size: 14px; color: var(--text); flex: 1; min-width: 200px; }
-    .safety-field strong { color: var(--dark); display: block; margin-bottom: 3px; font-weight: 600; font-family: 'Lora', serif; }
+    .safety-field strong { color: var(--dark); display: block; margin-bottom: 3px; font-weight: 600; font-family: 'Anthropic Sans', sans-serif; }
 
     .pill {
       display: inline-flex;
@@ -580,7 +673,7 @@
       gap: 5px;
       border-radius: 20px;
       padding: 4px 12px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       font-weight: 500;
       text-transform: uppercase;
@@ -615,7 +708,7 @@
     }
 
     .legal-footer .lf-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 22px;
       font-weight: 700;
       color: #fff;
@@ -647,7 +740,7 @@
     }
 
     .lf-links button, .lf-links a {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 12px;
       background: none;
       border: none;
@@ -663,7 +756,7 @@
 
     .lf-copy {
       margin-top: 30px;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       color: var(--tan);
       opacity: 0.8;

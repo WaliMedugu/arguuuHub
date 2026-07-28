@@ -65,9 +65,102 @@
 
   <link rel="icon" type="image/png" href="arguuu_logo.png">
   
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   
   <style>
+  /* --- Anthropic Custom Fonts --- */
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Extrabold-Static.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-MediumItalic-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web Regular Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Keep the 'Arguuu' Logo/Branding in Playfair Display */
+  .nav-logo, .footer-logo, .nav-logo *, .footer-logo * {
+    font-family: 'Playfair Display', serif !important;
+  }
+
     :root {
       --bg-cream: #faf6f0;
       --card-bg: #ffffff;
@@ -90,7 +183,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     
     body {
-      font-family: 'Lora', serif;
+      font-family: 'Anthropic Sans', sans-serif;
       background-color: var(--bg-cream);
       color: var(--text);
       line-height: 1.6;
@@ -111,7 +204,7 @@
     }
   
     .nav-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 1.5rem;
       font-weight: 900;
       color: var(--ink);
@@ -132,7 +225,7 @@
       margin-top: 4rem;
     }
     .footer-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 1.25rem;
       font-weight: 900;
       color: var(--cream);
@@ -142,7 +235,7 @@
     .footer-logo span.against { color: var(--terracotta); }
     
     .footer-meta {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       color: var(--sand);
@@ -165,7 +258,7 @@
 
     .visit-counter {
       margin-top: 1.5rem;
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.62rem;
       letter-spacing: 0.08em;
       color: rgba(232,221,208,0.7);
@@ -184,7 +277,7 @@
     }
 
     .topic-badge {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -194,7 +287,7 @@
     }
 
     .arena-header h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--ink);
@@ -248,14 +341,14 @@
     }
 
     .username {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.75rem;
       font-weight: 700;
       color: var(--ink);
     }
 
     .stance {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.6rem;
       text-transform: uppercase;
       padding: 0.2rem 0.5rem;
@@ -266,7 +359,7 @@
     .stance.against { background: var(--against-bg); color: var(--against-rust); }
 
     .vs {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-style: italic;
       font-weight: 700;
       color: var(--tan);
@@ -299,7 +392,7 @@
       border-radius: 24px;
       font-size: 1.35rem;
       line-height: 1.25;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       position: relative;
       font-weight: 600;
       text-shadow: none !important;
@@ -319,7 +412,7 @@
     }
 
     .bubble-meta {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -360,8 +453,8 @@
     Arg<span class="for">u</span><span class="against">u</span>u
   </a>
   <div style="display: flex; align-items: center; gap: 1rem;">
-    <a href="arguuu-blog.html" style="font-family: 'DM Mono', monospace; font-size: 0.6rem; text-transform: uppercase; color: var(--tan); text-decoration: none;">← Back to Archive</a>
-    <a href="https://play.google.com/store/apps/details?id=com.arguuu.app" target="_blank" style="font-family: 'DM Mono', monospace; font-size: 0.65rem; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1.5px solid var(--sand); padding: 0.5rem 1rem; border-radius: 30px;">Get App</a>
+    <a href="arguuu-blog.html" style="font-family: 'Anthropic Mono', monospace; font-size: 0.6rem; text-transform: uppercase; color: var(--tan); text-decoration: none;">← Back to Archive</a>
+    <a href="https://play.google.com/store/apps/details?id=com.arguuu.app" target="_blank" style="font-family: 'Anthropic Mono', monospace; font-size: 0.65rem; text-transform: uppercase; color: var(--ink); text-decoration: none; border: 1.5px solid var(--sand); padding: 0.5rem 1rem; border-radius: 30px;">Get App</a>
   </div>
 </nav>
 
@@ -753,7 +846,7 @@
     initials.className = 'profile-initials';
     initials.innerText = config.initials;
     initials.style.fontFamily = config.font || 'sans-serif';
-    if (config.font === 'Space Mono') initials.style.fontSize = '1.1rem';
+    if (config.font === 'Anthropic Mono') initials.style.fontSize = '1.1rem';
     container.appendChild(initials);
   }
 
@@ -763,7 +856,7 @@
     bgColor: '#0f172a',
     patternColor: '#3b82f6',
     ring: 'cold-blue',
-    font: 'Space Mono',
+    font: 'Anthropic Mono',
     initials: 'PF'
   };
 
@@ -772,7 +865,7 @@
     bgColor: '#fffaf0',
     meshColors: ['#d4af37', '#8b4513'],
     ring: 'elegant-gold',
-    font: 'Playfair Display',
+    font: 'Anthropic Serif',
     initials: 'NK'
   };
 

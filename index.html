@@ -114,8 +114,101 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
 <style>
+  /* --- Anthropic Custom Fonts --- */
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Extrabold-Static.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-MediumItalic-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web Regular Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Keep the 'Arguuu' Logo/Branding in Playfair Display */
+  .nav-logo, .footer-logo, .nav-logo *, .footer-logo * {
+    font-family: 'Playfair Display', serif !important;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -144,7 +237,7 @@
   }
 
   body {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Anthropic Sans', sans-serif;
     background: var(--cream);
     color: var(--text);
     line-height: 1.7;
@@ -165,7 +258,7 @@
   }
 
   .nav-logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1.5rem;
     font-weight: 900;
     color: var(--ink);
@@ -180,7 +273,7 @@
     list-style: none;
   }
   .nav-links a {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -197,7 +290,7 @@
   }
 
   .nav-gallery-link { 
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -208,7 +301,7 @@
   .nav-gallery-link:hover { color: var(--rust) !important; }
   
   .nav-portfolio-link { 
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -220,7 +313,7 @@
   .nav-portfolio-link:hover { color: var(--for-blue-mid) !important; }
 
   .nav-cta {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -285,7 +378,7 @@
     pointer-events: all;
   }
   .mobile-menu a {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 2.5rem;
     font-weight: 700;
     text-decoration: none;
@@ -311,7 +404,7 @@
   }
 
   .hero-eyebrow {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -337,7 +430,7 @@
     align-items: center;
     justify-content: center;
     padding: 1rem 2rem;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -357,7 +450,7 @@
   .bubble-vs {
     background: var(--ink);
     color: var(--cream);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     padding: 0.5rem 0.8rem;
@@ -365,7 +458,7 @@
   }
 
   .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: clamp(3rem, 8vw, 7rem);
     font-weight: 900;
     line-height: 1.0;
@@ -385,7 +478,7 @@
   }
 
   .hero-sub {
-    font-family: 'Lora', serif;
+    font-family: 'Anthropic Sans', sans-serif;
     font-size: 1.15rem;
     color: var(--text-light);
     max-width: 520px;
@@ -408,7 +501,7 @@
     padding: 0 1rem;
   }
   .btn-primary {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -423,7 +516,7 @@
   }
   .btn-primary:hover { background: var(--brown); transform: translateY(-1px); }
   .btn-secondary {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -439,7 +532,7 @@
   .btn-secondary:hover { border-color: var(--brown); transform: translateY(-1px); }
 
   .btn-arena {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -455,7 +548,7 @@
   .btn-arena:hover { background: var(--terracotta); color: #fff; transform: translateY(-1px); }
 
   .btn-android {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -473,7 +566,7 @@
   .btn-android:hover { background: #145e2f; transform: translateY(-1px); }
 
   .btn-webapp {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -512,7 +605,7 @@
 
   .hero-scroll-hint {
     margin-top: 4rem;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -543,7 +636,7 @@
     display: inline-flex;
     gap: 3rem;
     animation: ticker 20s linear infinite;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.68rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -560,7 +653,7 @@
     margin: 0 auto;
   }
   .section-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -578,7 +671,7 @@
     background: var(--tan);
   }
   h2.section-heading {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 700;
     line-height: 1.15;
@@ -626,7 +719,7 @@
     width: 80%;
   }
   .iv-card-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -636,7 +729,7 @@
   .iv-card-for .iv-card-label { color: var(--for-blue); }
   .iv-card-against .iv-card-label { color: var(--against-rust); }
   .iv-card p {
-    font-family: 'Lora', serif;
+    font-family: 'Anthropic Sans', sans-serif;
     font-size: 0.95rem;
     color: var(--text);
     line-height: 1.6;
@@ -653,7 +746,7 @@
     align-items: center;
     justify-content: center;
     color: var(--cream);
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     font-weight: 500;
@@ -677,7 +770,7 @@
   }
   .step.visible { opacity: 1; transform: none; }
   .step-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 3.5rem;
     font-weight: 900;
     color: var(--sand);
@@ -685,7 +778,7 @@
     margin-bottom: 1rem;
   }
   .step h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--ink);
@@ -733,7 +826,7 @@
   .feature-icon.rust { background: var(--against-rust-light); }
   .feature-icon.brown { background: var(--sand); }
   .feature-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--ink);
@@ -752,7 +845,7 @@
     text-align: center;
   }
   .pull-section blockquote {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
     font-style: italic;
@@ -764,7 +857,7 @@
   }
   .pull-section blockquote em { color: var(--terracotta); font-style: normal; }
   .pull-attrib {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.68rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -791,13 +884,13 @@
     gap: 1rem;
   }
   .debate-header h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--ink);
   }
   .debate-badge {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.58rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -816,7 +909,7 @@
   }
   .debate-side.for { border-right: 1px solid var(--sand); }
   .side-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.62rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -842,14 +935,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.55rem;
     font-weight: 500;
   }
   .av-for { background: var(--for-blue-light); color: var(--for-blue); }
   .av-against { background: var(--against-rust-light); color: var(--against-rust); }
   .avatar-name {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.62rem;
     letter-spacing: 0.05em;
     color: var(--text-light);
@@ -882,7 +975,7 @@
     width: 62%;
   }
   .vote-label {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.6rem;
     letter-spacing: 0.08em;
     color: var(--text-light);
@@ -893,7 +986,7 @@
     margin-left: 1.5rem;
   }
   .action-pill {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.58rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -919,7 +1012,7 @@
     position: absolute;
     top: -0.5rem; left: 50%;
     transform: translateX(-50%);
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 28rem;
     color: var(--sand);
     opacity: 0.35;
@@ -929,7 +1022,7 @@
   }
   .cta-inner { position: relative; z-index: 1; }
   .cta-section h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: clamp(2.2rem, 5vw, 4rem);
     font-weight: 900;
     line-height: 1.1;
@@ -957,14 +1050,14 @@
     padding: 0.9rem 1.2rem;
     border: none;
     background: transparent;
-    font-family: 'Lora', serif;
+    font-family: 'Anthropic Sans', sans-serif;
     font-size: 0.95rem;
     color: var(--text);
     outline: none;
   }
   .notify-form input::placeholder { color: var(--tan); }
   .notify-form button {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.68rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -978,7 +1071,7 @@
   .notify-form button:hover { background: var(--brown); }
   .form-note {
     margin-top: 0.85rem;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.6rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -995,7 +1088,7 @@
     border-top: 1px solid rgba(255,255,255,0.06);
   }
   .footer-logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1.25rem;
     font-weight: 900;
     color: var(--cream);
@@ -1003,7 +1096,7 @@
   .footer-logo span.for { color: var(--for-blue-mid); }
   .footer-logo span.against { color: var(--terracotta); }
   .footer-meta {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.1em;
     color: var(--sand);
@@ -1025,7 +1118,7 @@
 
   .visit-counter {
     margin-top: 1.5rem;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.62rem;
     letter-spacing: 0.08em;
     color: rgba(232,221,208,0.7);
@@ -1163,13 +1256,13 @@
     color: var(--cream);
   }
   .modal-header h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
   }
   .modal-header p {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1197,12 +1290,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.7rem;
     flex-shrink: 0;
   }
   .step-content h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Anthropic Serif', serif;
     font-size: 1rem;
     font-weight: 700;
     color: var(--ink);
@@ -1219,7 +1312,7 @@
     border-top: 1px solid var(--sand);
   }
   .btn-close-modal {
-    font-family: 'DM Mono', monospace;
+    font-family: 'Anthropic Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -1519,26 +1612,26 @@
     
     <div class="trending-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
       <a href="arguuu-debate-avatar.html" class="trending-card" style="padding: 2rem; background: #fff; border: 1px solid var(--sand); border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease;">
-        <span style="font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--terracotta); text-transform: uppercase; margin-bottom: 1rem; display: block;">Avatar Lore</span>
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">Is Korra a worse Avatar than Roku?</h3>
+        <span style="font-family: 'Anthropic Mono', monospace; font-size: 0.65rem; color: var(--terracotta); text-transform: uppercase; margin-bottom: 1rem; display: block;">Avatar Lore</span>
+        <h3 style="font-family: 'Anthropic Serif', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">Is Korra a worse Avatar than Roku?</h3>
         <p style="font-size: 0.9rem; color: var(--text-light);">A deep dive into bending mastery, political capital, and the legacy of the past lives.</p>
       </a>
       
       <a href="arguuu-debate-politics.html" class="trending-card" style="padding: 2rem; background: #fff; border: 1px solid var(--sand); border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease;">
-        <span style="font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--for-blue); text-transform: uppercase; margin-bottom: 1rem; display: block;">Global Politics</span>
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">Is Tinubu a relatively good president?</h3>
+        <span style="font-family: 'Anthropic Mono', monospace; font-size: 0.65rem; color: var(--for-blue); text-transform: uppercase; margin-bottom: 1rem; display: block;">Global Politics</span>
+        <h3 style="font-family: 'Anthropic Serif', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">Is Tinubu a relatively good president?</h3>
         <p style="font-size: 0.9rem; color: var(--text-light);">Economic indicators, fiscal policy, and the future of the Nigerian economy.</p>
       </a>
 
       <a href="arguuu-debate-abortion.html" class="trending-card" style="padding: 2rem; background: #fff; border: 1px solid var(--sand); border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease;">
-        <span style="font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--against-rust); text-transform: uppercase; margin-bottom: 1rem; display: block;">Ethics & Philosophy</span>
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">The Ethics of Abortion & Bodily Autonomy</h3>
+        <span style="font-family: 'Anthropic Mono', monospace; font-size: 0.65rem; color: var(--against-rust); text-transform: uppercase; margin-bottom: 1rem; display: block;">Ethics & Philosophy</span>
+        <h3 style="font-family: 'Anthropic Serif', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">The Ethics of Abortion & Bodily Autonomy</h3>
         <p style="font-size: 0.9rem; color: var(--text-light);">A profound clash between the right to life and individual human agency.</p>
       </a>
 
       <a href="arguuu-debate-fnaf.html" class="trending-card" style="padding: 2rem; background: #fff; border: 1px solid var(--sand); border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease;">
-        <span style="font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--terracotta); text-transform: uppercase; margin-bottom: 1rem; display: block;">Gaming Culture</span>
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">FNAF vs Poppy Playtime: Mascot Horror</h3>
+        <span style="font-family: 'Anthropic Mono', monospace; font-size: 0.65rem; color: var(--terracotta); text-transform: uppercase; margin-bottom: 1rem; display: block;">Gaming Culture</span>
+        <h3 style="font-family: 'Anthropic Serif', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">FNAF vs Poppy Playtime: Mascot Horror</h3>
         <p style="font-size: 0.9rem; color: var(--text-light);">Which series truly defined the modern era of environmental storytelling in games?</p>
       </a>
     </div>
@@ -1553,15 +1646,15 @@
     
     <div class="faq-list" style="margin-top: 3rem; display: flex; flex-direction: column; gap: 2rem;">
       <div class="faq-item">
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">How can I start a structured debate?</h3>
+        <h3 style="font-family: 'Anthropic Serif', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">How can I start a structured debate?</h3>
         <p style="color: var(--text-light);">You can join any active motion on the Arguuu app or propose your own topic. Our structured format ensures every side is heard fairly.</p>
       </div>
       <div class="faq-item">
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">What makes Arguuu different from social media?</h3>
+        <h3 style="font-family: 'Anthropic Serif', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">What makes Arguuu different from social media?</h3>
         <p style="color: var(--text-light);">Unlike traditional social media, Arguuu enforces a formal debate structure (Opening, Rebuttal, Closing) and uses skill-based voting instead of popularity.</p>
       </div>
       <div class="faq-item">
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">Can I read archived debates online?</h3>
+        <h3 style="font-family: 'Anthropic Serif', serif; font-size: 1.25rem; margin-bottom: 0.5rem;">Can I read archived debates online?</h3>
         <p style="color: var(--text-light);">Yes, our high-fidelity archive features the most intense and intellectual clashes from the platform, fully accessible via our web hub.</p>
       </div>
     </div>

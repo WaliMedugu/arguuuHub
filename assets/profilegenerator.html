@@ -6,9 +6,102 @@
     <title>Arguuu | Canvas Customizer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400..900&family=Syncopate:wght@400;700&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Anton&family=Orbitron:wght@400..900&family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400..900&family=Syncopate:wght@400;700&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Anton&family=Orbitron:wght@400..900&family=Abril+Fatface&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
     <style>
+  /* --- Anthropic Custom Fonts --- */
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('fonts/AnthropicSerif-Display-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('fonts/AnthropicSerif-Display-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('fonts/AnthropicSerif-Display-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('fonts/AnthropicSerif-Display-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('fonts/AnthropicSerif-Display-Extrabold-Static.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('fonts/AnthropicSans-Text-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('fonts/AnthropicSans-Text-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('fonts/AnthropicSans-Text-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('fonts/AnthropicSans-Text-MediumItalic-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('fonts/AnthropicSans-Text-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('fonts/AnthropicSans-Text-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('fonts/Anthropic Mono Web.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('fonts/Anthropic Mono Web Regular Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Keep the 'Arguuu' Logo/Branding in Playfair Display */
+  .nav-logo, .footer-logo, .nav-logo *, .footer-logo * {
+    font-family: 'Playfair Display', serif !important;
+  }
+
         :root {
             --bg-dark: #0a0a0c;
             --panel-bg: #141418;
@@ -29,7 +122,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Anthropic Sans', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
             height: 100vh;
@@ -48,7 +141,7 @@
         }
 
         .logo {
-            font-family: 'DM Mono', monospace;
+            font-family: 'Anthropic Mono', monospace;
             font-size: 14px;
             font-weight: 700;
             letter-spacing: 2px;
@@ -99,7 +192,7 @@
             border: 1px solid var(--panel-border);
             border-radius: 12px;
             padding: 20px;
-            font-family: 'DM Mono', monospace;
+            font-family: 'Anthropic Mono', monospace;
             font-size: 11px;
             color: #10b981;
             white-space: pre-wrap;
@@ -130,7 +223,7 @@
             background: none;
             border: none;
             color: var(--text-dim);
-            font-family: 'DM Mono', monospace;
+            font-family: 'Anthropic Mono', monospace;
             font-size: 12px;
             font-weight: 600;
             padding: 12px 20px;
@@ -161,7 +254,7 @@
         .control-group { margin-bottom: 30px; }
         .control-group label {
             display: block;
-            font-family: 'DM Mono', monospace;
+            font-family: 'Anthropic Mono', monospace;
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -193,7 +286,7 @@
         .style-item:hover { border-color: rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.05); }
         .style-item.active { border-color: var(--accent); background: var(--accent-glow); }
 
-        .style-item span { font-size: 8px; font-family: 'DM Mono', monospace; text-align: center; color: var(--text-dim); }
+        .style-item span { font-size: 8px; font-family: 'Anthropic Mono', monospace; text-align: center; color: var(--text-dim); }
         .style-item.active span { color: var(--accent); }
 
         /* --- Color Picker --- */
@@ -223,7 +316,7 @@
             border-radius: 8px;
             padding: 12px 16px;
             color: var(--text-main);
-            font-family: 'DM Mono', monospace;
+            font-family: 'Anthropic Mono', monospace;
             outline: none;
         }
 
@@ -388,21 +481,21 @@
         const accents = ['none', 'sparkle', 'dot3', 'leaf', 'arrow', 'burst', 'star', 'flame', 'diamond_f', 'diamond_o', 'circle_f', 'circle_o', 'bow', 'leaf_v', 'blossom', 'burst_d', 'burst_s', 'star_o'];
 
         const fontMap = {
-            serif: 'Lora, serif',
-            sans: 'Inter, sans-serif',
+            serif: 'Anthropic Sans, serif',
+            sans: 'Anthropic Sans, sans-serif',
             editorial: 'Fraunces, serif',
             migra: 'Cinzel, serif', // Closest to Migra in Google Fonts
-            sausage: 'Inter, sans-serif', // Substitute
+            sausage: 'Anthropic Sans, sans-serif', // Substitute
             monument: 'Syncopate, sans-serif',
-            montreal: 'Space Mono, monospace',
-            ramona: 'Inter, sans-serif', // Substitute
+            montreal: 'Anthropic Mono, monospace',
+            ramona: 'Anthropic Sans, sans-serif', // Substitute
             playwrite: 'Dancing Script, cursive', // Substitute
             dancing: 'Dancing Script, cursive',
             garamond: 'EB Garamond, serif',
             anton: 'Anton, sans-serif',
             orbitron: 'Orbitron, sans-serif',
             abril: 'Abril Fatface, serif',
-            spaceMono: 'Space Mono, monospace'
+            spaceMono: 'Anthropic Mono, monospace'
         };
 
         // --- State ---
@@ -736,7 +829,7 @@
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             
-            const fontName = fontMap[customization.font] || 'Inter, sans-serif';
+            const fontName = fontMap[customization.font] || 'Anthropic Sans, sans-serif';
             ctx.font = `bold ${w/4}px ${fontName}`;
             
             const totalWidth = chars.length * (w/5);

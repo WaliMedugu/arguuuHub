@@ -27,8 +27,101 @@
   <link rel="icon" type="image/png" href="arguuu_logo.png">
   <link rel="apple-touch-icon" href="arguuu_logo.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <style>
+  /* --- Anthropic Custom Fonts --- */
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Extrabold-Static.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-MediumItalic-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web Regular Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Keep the 'Arguuu' Logo/Branding in Playfair Display */
+  .nav-logo, .footer-logo, .nav-logo *, .footer-logo * {
+    font-family: 'Playfair Display', serif !important;
+  }
+
     :root {
       --cream: #faf6f0;
       --warm-white: #fdf9f4;
@@ -51,7 +144,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Lora', Georgia, serif;
+      font-family: 'Anthropic Sans', sans-serif;
       background-color: var(--cream);
       color: var(--text);
       line-height: 1.75;
@@ -73,7 +166,7 @@
     }
   
     .nav-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 1.5rem;
       font-weight: 900;
       color: var(--ink);
@@ -86,7 +179,7 @@
     .nav-logo span.against { color: var(--against-rust); }
   
     .nav-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -103,7 +196,7 @@
       list-style: none;
     }
     .nav-links a {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -123,7 +216,7 @@
     }
 
     .page-hero .eyebrow {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 11px;
       color: var(--terracotta);
       text-transform: uppercase;
@@ -132,7 +225,7 @@
     }
 
     .page-hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: clamp(32px, 6vw, 56px);
       font-weight: 700;
       color: #fff;
@@ -146,7 +239,7 @@
     .page-hero h1 em { color: var(--terracotta); font-style: italic; }
 
     .page-hero p {
-      font-family: 'Lora', serif;
+      font-family: 'Anthropic Sans', sans-serif;
       color: var(--tan);
       font-size: 18px;
       max-width: 640px;
@@ -162,7 +255,7 @@
     }
 
     .section-label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 10px;
       font-weight: 500;
       text-transform: uppercase;
@@ -172,7 +265,7 @@
     }
 
     h2.doc-h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 36px;
       font-weight: 700;
       color: var(--ink);
@@ -199,7 +292,7 @@
     }
 
     .mission-item h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 20px;
       font-weight: 700;
       color: var(--dark);
@@ -228,7 +321,7 @@
       border-top: 1px solid rgba(255,255,255,0.06);
     }
     .footer-logo {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 1.25rem;
       font-weight: 900;
       color: var(--cream);
@@ -238,7 +331,7 @@
     .footer-logo span.against { color: var(--terracotta); }
     
     .footer-meta {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       color: var(--sand);

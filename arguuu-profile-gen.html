@@ -6,9 +6,102 @@
   <title>Arguuu — Profile Generator Reverse Engineer</title>
   <link rel="icon" type="image/png" href="arguuu_logo.png">
   
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&family=Space+Mono:wght@400;700&family=Anton&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Space+Mono:wght@400;700&family=Anton&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
   
   <style>
+  /* --- Anthropic Custom Fonts --- */
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Serif';
+    src: url('assets/fonts/AnthropicSerif-Display-Extrabold-Static.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Regular-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-RegularItalic-Static.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Medium-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-MediumItalic-Static.otf') format('opentype');
+    font-weight: 500;
+    font-style: italic;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-Bold-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Sans';
+    src: url('assets/fonts/AnthropicSans-Text-BoldItalic-Static.otf') format('opentype');
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Anthropic Mono';
+    src: url('assets/fonts/Anthropic Mono Web Regular Italic.otf') format('opentype');
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* Keep the 'Arguuu' Logo/Branding in Playfair Display */
+  .nav-logo, .footer-logo, .nav-logo *, .footer-logo * {
+    font-family: 'Playfair Display', serif !important;
+  }
+
     :root {
       --bg-cream: #faf6f0;
       --sand: #e8ddd0;
@@ -18,7 +111,7 @@
     }
 
     body {
-      font-family: 'Lora', serif;
+      font-family: 'Anthropic Sans', sans-serif;
       background: var(--bg-cream);
       color: var(--text);
       display: flex;
@@ -29,7 +122,7 @@
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Anthropic Serif', serif;
       font-size: 2.5rem;
       margin-bottom: 2rem;
     }
@@ -65,7 +158,7 @@
     }
 
     label {
-      font-family: 'DM Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -79,7 +172,7 @@
       border-radius: 12px;
       border: 1.5px solid var(--sand);
       background: #fdf9f4;
-      font-family: 'Space Mono', monospace;
+      font-family: 'Anthropic Mono', monospace;
       font-size: 0.85rem;
       outline: none;
       resize: none;
@@ -164,7 +257,7 @@
       <div id="initialsDisplay" class="profile-initials">KC</div>
       <div id="accentDisplay" class="accent-icon"></div>
     </div>
-    <p id="errorMsg" style="color: red; font-family: 'DM Mono', monospace; font-size: 0.7rem; display: none;">Invalid JSON format</p>
+    <p id="errorMsg" style="color: red; font-family: 'Anthropic Mono', monospace; font-size: 0.7rem; display: none;">Invalid JSON format</p>
   </div>
 </div>
 
@@ -178,10 +271,10 @@
   const errorMsg = document.getElementById('errorMsg');
 
   const fontMap = {
-    'serif': "'Playfair Display', serif",
+    'serif': "'Anthropic Serif', serif",
     'monument': "'Orbitron', sans-serif", // Approximate
     'anton': "'Anton', sans-serif",
-    'spaceMono': "'Space Mono', monospace",
+    'spaceMono': "'Anthropic Mono', monospace",
     'dancing': "cursive",
     'sausage': "cursive"
   };
